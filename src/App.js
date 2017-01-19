@@ -3,15 +3,16 @@ import { LeftNavs, Headers } from './layout';
 import './App.css';
 
 const bodyStyle = {
-  marginTop: '80px',
+  paddingTop: '80px',
   display: 'table',
   width: '100%',
+  height: '100%',
 }
 
 class App extends Component {
   render() {
     return (
-      <div className="App" style={{height: "100%"}}>
+      <div className="App">
         <Headers />
         <div style={bodyStyle}>
           <LeftNavs />
