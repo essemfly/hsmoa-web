@@ -6,7 +6,7 @@ const bodyStyle = {
   paddingTop: '80px',
   display: 'table',
   width: '100%',
-  height: '100%',
+  height: 'inherit',
 }
 
 class App extends Component {
