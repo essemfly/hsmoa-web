@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { LeftNavs, Headers } from './layout';
 import './App.css';
+
+const bodyStyle = {
+  marginTop: '80px',
+  display: 'table',
+  width: '100%',
+}
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div className="App" style={{height: "100%"}}>
+        <Headers />
+        <div style={bodyStyle}>
+          <LeftNavs />
+          {this.props.children}
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
