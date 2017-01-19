@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Input } from 'antd';
-
-const Search = Input.Search;
+import Search from './Search';
 
 const headerStyle = {
   position: 'absolute',
@@ -50,12 +48,7 @@ class Headers extends Component {
           <img src="http://cache.hsmoa.com/media/img/web/logo_hsmoa.png" style={logoStyle} alt=''/>
         </div>
         <div style={searchBoxStyle}>
-            <Search
-              size="large"
-              placeholder="input search text"
-              style={{ width: '30%'}}
-              onSearch={this.search}
-              />
+            <Search />
         </div>
       </div>
     );

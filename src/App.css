@@ -1,11 +1,11 @@
-html,
-body,
+@import '~antd/dist/antd.css';
+
 #root {
-  height: 100%;
+  height: inherit;
 }
 
 .App {
-  height: 100%;
+  height: inherit;
   text-align: center;
 }
 
