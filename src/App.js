@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { LeftNavs, Headers } from './layout';
+import { Header } from './layout';
 import './App.css';
 
 const bodyStyle = {
@@ -13,9 +13,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Headers />
+        <Header />
         <div style={bodyStyle}>
-          <LeftNavs />
           {this.props.children}
         </div>
       </div>

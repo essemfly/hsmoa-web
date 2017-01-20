@@ -1,4 +1,4 @@
-import Headers from './Headers'
-import LeftNavs from './LeftNavs'
+import Header from './Header'
+import LeftNav from './LeftNav'
 
-export { Headers, LeftNavs }
+export { Header, LeftNav }

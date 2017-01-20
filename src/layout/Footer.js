@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Search from './Search';
+import Search from '../product/Search';
 
 const headerStyle = {
   position: 'absolute',

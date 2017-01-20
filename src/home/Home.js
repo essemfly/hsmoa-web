@@ -6,7 +6,6 @@ const navStyle = {
 }
 
 
-
 class Home extends Component {
   render() {
     return (

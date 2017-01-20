@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as act from './actions';
 import { Icon } from 'antd';
 
 const searchStyle = {
@@ -52,4 +54,23 @@ class Search extends Component {
   }
 }
 
-export default Search;
+const mapStateToProps = (state) => {
+  return {
+    searchKeyword: state.searchKeyword
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleChange: (keyword) => {
+      dispatch(act.searchProducts(keyword))
+    }
+  }
+}
+
+const SearchContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Search)
+
+export default SearchContainer;
