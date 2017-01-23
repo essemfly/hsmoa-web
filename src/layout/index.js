@@ -1,4 +1,4 @@
-import Header from './Header'
+import HeaderContainer from './HeaderContainer'
 import LeftNav from './LeftNav'
 
-export { Header, LeftNav }
+export { HeaderContainer, LeftNav }

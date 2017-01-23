@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header } from './layout';
+import { HeaderContainer } from './layout';
 import './App.css';
 
 const bodyStyle = {
@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <HeaderContainer />
         <div style={bodyStyle}>
           {this.props.children}
         </div>
