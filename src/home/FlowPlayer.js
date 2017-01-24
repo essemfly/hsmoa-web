@@ -23,7 +23,7 @@ export default class FlowPlayer extends React.Component {
             return;
 
         this.player = flowplayer(node, {
-            autoplay: true,
+            autoplay: false,
             live: true,
             splash: false,
             clip: {

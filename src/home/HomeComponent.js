@@ -9,7 +9,7 @@ const navStyle = {
 }
 
 
-class Home extends Component {
+class HomeComponent extends Component {
   render() {
     return (
       <div style={navStyle}>
@@ -20,4 +20,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default HomeComponent;

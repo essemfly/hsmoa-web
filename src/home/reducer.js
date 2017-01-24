@@ -1,4 +1,6 @@
 const initialState = {
+  onAirIndex: 0,
+  channels: [],
   products: [],
 }
 
