@@ -1,4 +1,5 @@
 @import '~antd/dist/antd.css';
+@import '~flowplayer/dist/skin/skin.css';
 
 #root {
   height: inherit;
