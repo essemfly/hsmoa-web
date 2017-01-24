@@ -30,3 +30,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.active {
+  border-bottom: 3px solid #EA1B27;
+  font-weight: bold;
+}
+a {
+  color: black;
+}

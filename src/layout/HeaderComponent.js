@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import SearchComponent from './SearchComponent';
+import { Link } from 'react-router'
 
 const headerLayoutStyle = {
   width: '100%',
@@ -43,7 +44,7 @@ const navStyle = {
 const navItemStyle = {
   margin: '0 15px',
   fontSize: '17px',
-  fontWeight: 'bold',
+  padding: '7px',
 }
 
 const searchBoxStyle = {
@@ -53,24 +54,25 @@ const searchBoxStyle = {
   paddingLeft: '50px',
 }
 
-const HeaderComponent = ({  keyword, onSearchClick, onChangeKeyword }) => (
-  <div style={headerLayoutStyle}>
-    <div style={headerStyle}>
-      <div style={logoDivStyle}>
-        <img src="http://cache.hsmoa.com/media/img/web/logo_hsmoa.png" style={logoStyle} alt=''/>
-      </div>
-      <div style={navStyle}>
-        <span style={navItemStyle}>홈</span>
-        <span style={navItemStyle}>편성표</span>
-        <span style={navItemStyle}>TOP100</span>
-      </div>
-      <div style={searchBoxStyle}>
-        <SearchComponent keyword={keyword} onChangeKeyword={onChangeKeyword} onSearchClick={onSearchClick} />
+const HeaderComponent = ({ keyword, onSearchClick, onChangeKeyword }) => (
+    <div style={headerLayoutStyle}>
+      <div style={headerStyle}>
+        <div style={logoDivStyle}>
+          <Link to="/">
+            <img src="http://cache.hsmoa.com/media/img/web/logo_hsmoa.png" style={logoStyle} alt=''/>
+          </Link>
+        </div>
+        <div style={navStyle}>
+          <span className={window.location.pathname === '/' ? 'active' : ''} style={navItemStyle}><Link to="/">홈</Link></span>
+          <span className={window.location.pathname === '/schedule' ? 'active' : ''} style={navItemStyle}><Link to="/schedule">편성표</Link></span>
+          <span className={window.location.pathname === '/top' ? 'active' : ''} style={navItemStyle}><Link to="/top">TOP100</Link></span>
+        </div>
+        <div style={searchBoxStyle}>
+          <SearchComponent keyword={keyword} onChangeKeyword={onChangeKeyword} onSearchClick={onSearchClick} />
+        </div>
       </div>
     </div>
-  </div>
 )
-
 
 HeaderComponent.propTypes = {
   keyword: PropTypes.string,

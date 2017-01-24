@@ -4,7 +4,7 @@ import HeaderComponent from './HeaderComponent'
 
 const mapStateToProps = (state) => {
   return {
-    keyword: state.headerReducer.searchKeyword
+    keyword: state.headerReducer.searchKeyword,
   }
 }
 
