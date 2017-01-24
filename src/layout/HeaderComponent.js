@@ -18,6 +18,7 @@ const headerStyle = {
   height: '80px',
   marginRight: 'auto',
   marginLeft: 'auto',
+  verticalAlign: 'middle'
 }
 
 const logoDivStyle = {
@@ -32,6 +33,19 @@ const logoStyle = {
   lineHeight: '80px',
 }
 
+const navStyle = {
+  paddingLeft: '15px',
+  verticalAlign: 'middle',
+  display: 'table-cell',
+  textAlign: 'left',
+}
+
+const navItemStyle = {
+  margin: '0 15px',
+  fontSize: '17px',
+  fontWeight: 'bold',
+}
+
 const searchBoxStyle = {
   verticalAlign: 'middle',
   display: 'table-cell',
@@ -44,6 +58,11 @@ const HeaderComponent = ({  keyword, onSearchClick, onChangeKeyword }) => (
     <div style={headerStyle}>
       <div style={logoDivStyle}>
         <img src="http://cache.hsmoa.com/media/img/web/logo_hsmoa.png" style={logoStyle} alt=''/>
+      </div>
+      <div style={navStyle}>
+        <span style={navItemStyle}>홈</span>
+        <span style={navItemStyle}>편성표</span>
+        <span style={navItemStyle}>TOP100</span>
       </div>
       <div style={searchBoxStyle}>
         <SearchComponent keyword={keyword} onChangeKeyword={onChangeKeyword} onSearchClick={onSearchClick} />
