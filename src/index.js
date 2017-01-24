@@ -4,15 +4,20 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import { Provider } from 'react-redux';
 import App from './App';
 import { HomeContainer } from './home';
+import { Top100Container } from './top100';
+import { ScheduleContainer } from './schedule';
 import { rootStore } from './rootReducer';
+import { syncHistoryWithStore } from 'react-router-redux';
+
+const history = syncHistoryWithStore(browserHistory, rootStore)
 
 ReactDOM.render((
   <Provider store={rootStore}>
-    <Router history={browserHistory}>
+    <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={HomeContainer}/>
-        <Route path="top" component={App}/>
-        <Route path="product" component={App} />
+        <Route path="top" component={Top100Container}/>
+        <Route path="schedule" component={ScheduleContainer} />
       </Route>
     </Router>
   </Provider>
