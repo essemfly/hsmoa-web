@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { searchProducts, changeKeyword } from './actions'
+import { fetchRequested } from './actions'
 import HomeComponent from './HomeComponent'
 
 const mapStateToProps = (state) => {
@@ -10,14 +10,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    onSearchClick: () => {
-      dispatch(searchProducts())
-    },
-    onChangeKeyword: (keyword) => {
-      dispatch(changeKeyword(keyword))
-    }
-  }
+  dispatch(fetchRequested())
+  return {}
 }
 
 const HomeContainer = connect(

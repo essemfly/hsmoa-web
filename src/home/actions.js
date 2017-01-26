@@ -1,10 +1,15 @@
-export const SEARCH_PRODUCTS = 'SEARCH_PRODUCTS';
-export const CHANGE_KEYWORD = 'CHANGE_KEYWORD';
+export const FETCH_REQUESTED = 'FETCH_REQUESTED';
+export const FETCH_SUCCEEDED = 'FETCH_SUCCEEDED';
+export const FETCH_FAILED = 'FETCH_FAILED';
 
-export const searchProducts = () => {
-    return { type: SEARCH_PRODUCTS }
+export const fetchRequested = () => {
+    return { type: FETCH_REQUESTED }
 }
 
-export const changeKeyword = (keyword) => {
-    return { type: CHANGE_KEYWORD, keyword }
+export const fetchSucceeded = () => {
+    return { type: FETCH_SUCCEEDED }
+}
+
+export const fetchFailed = () => {
+    return { type: FETCH_FAILED }
 }

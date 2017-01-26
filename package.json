@@ -48,11 +48,13 @@
   },
   "dependencies": {
     "antd": "^2.6.3",
+    "axios": "^0.15.3",
     "flowplayer": "^7.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^3.0.2",
-    "react-router-redux": "^4.0.7"
+    "react-router-redux": "^4.0.7",
+    "redux-saga": "^0.14.3"
   },
   "scripts": {
     "start": "node scripts/start.js",
