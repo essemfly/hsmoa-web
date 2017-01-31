@@ -15,8 +15,10 @@ export default class FlowPlayer extends React.Component {
     }
 
     loadVideo = () => {
-        if(this.player || !this.props.src)
+        if (this.player || !this.props.src) {
+            this.changeChannel()
             return;
+        }
 
         let node = ReactDOM.findDOMNode(this.refs.flowplayer);
         if(!node)
@@ -37,6 +39,14 @@ export default class FlowPlayer extends React.Component {
         this.player.bind("error", function (e, api, err) {
           console.log('error', e, api, err);
         });
+    }
+    
+    changeChannel = () => {
+        this.player.load({
+         sources: [
+           { type: "application/x-mpegurl", src: this.props.src }
+        ]
+      });
     }
 
     render() {

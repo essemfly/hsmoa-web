@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchRequested } from './actions'
+import { fetchRequested, changeChannel } from './actions'
 import HomeComponent from './HomeComponent'
 
 const mapStateToProps = (state) => {
@@ -11,7 +11,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   dispatch(fetchRequested())
-  return {}
+  return {
+    onChangeChannel: (index) => {
+      dispatch(changeChannel(index))
+    }
+  }
 }
 
 const HomeContainer = connect(

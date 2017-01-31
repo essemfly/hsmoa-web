@@ -1,4 +1,4 @@
-import { FETCH_SUCCEEDED, FETCH_FAILED} from './actions';
+import { FETCH_SUCCEEDED, FETCH_FAILED, CHANGE_CHANNEL} from './actions';
 
 const initialState = {
   onAirIndex: 0,
@@ -14,6 +14,10 @@ export const homeReducer = (state= initialState, action) => {
       })
     case FETCH_FAILED:
       return { ...state }
+    case CHANGE_CHANNEL:
+      return Object.assign({}, state, {
+        onAirIndex: action.index
+      })
     default:
       return state;
   }
