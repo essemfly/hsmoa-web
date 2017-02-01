@@ -33,14 +33,14 @@ const logoStyle = {
 const HomeComponent = ({ channels, onAir, onChangeChannel }) => {
   return (
   <div style={navStyle}>
-    <div style={{ display: 'table-cell', }}>
+    <div style={{ display: 'table-cell',  border: '1px solid #dddddd', background: 'black', }}>
       <FlowPlayer src={ channels.length > 0 ? channels[onAir].ios_video : 'http://livem.gsshop.com/gsmyshop_sd/_definst_/gsmyshop_sd.stream/playlist.m3u8'} />
     </div>
-    <div style={{ width: '110px', height: '100%', display: 'table-cell', verticalAlign: 'top',}}>
+    <div style={{ width: '110px', height: '100%', display: 'table-cell', verticalAlign: 'top', border: '1px solid #dddddd'}}>
       <ul style={{ overflow: 'scroll', height: '100%',}}>
         { channels.map((channel, index) => 
           <li style={onAir === index ? activeListStyle :listStyle} key={index} onClick={() => onChangeChannel(index)}>
-            <img style={logoStyle} src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_big_' + channel.crawl_site + '.png'}/>
+            <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_big_' + channel.crawl_site + '.png'}/>
           </li>)
         }
       </ul>
