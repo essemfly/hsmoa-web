@@ -9,6 +9,8 @@ const mapStateToProps = (state) => {
   return {
     onAir: state.homeReducer.onAirIndex,
     channels: state.homeReducer.channels,
+    schedules: state.homeReducer.schedules.length > 0 ? state.homeReducer.schedules[1].data : [],
+    top100s: state.homeReducer.top100,
   }
 }
 

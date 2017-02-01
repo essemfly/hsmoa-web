@@ -2,7 +2,7 @@
 @import '~flowplayer/dist/skin/skin.css';
 
 #root {
-  height: inherit;
+  height: initial;
 }
 
 .App {

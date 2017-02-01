@@ -5,7 +5,6 @@ import footer_googleplay from '../../public/footer_googleplay.png';
 import footer_background from '../../public/footer_background.png';
 
 const footerStyle = {
-  position: 'absolute',
   bottom: '0',
   width: '100%',
   display: 'table',

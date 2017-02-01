@@ -65,8 +65,33 @@ const sectionHeaderStyle = {
   marginBottom: '18px',
 }
 
+const productListStyle = {
+  position: 'relative',
+  maxWidth: '980px',
+  minWidth: '780px',
+  display: 'table-cell',
+}
 
-const HomeComponent = ({ channels, onAir, onChangeChannel }) => {
+const productBoxStyle = {
+  width: '230px',
+  height: '345px',
+  border: '1px solid #e6e6e6',
+  position: 'relative',
+  float: 'left',
+  marginRight: '20px',
+  marginBottom: '15px',
+}
+
+const hiddenStyle = {
+  display: 'none',
+}
+
+const productImageStyle = {
+  width: '230px',
+  height: '230px',
+}
+
+const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel }) => {
   return (
   <div style={baseStyle}>
     <div style={videoSectionStyle}>
@@ -76,7 +101,7 @@ const HomeComponent = ({ channels, onAir, onChangeChannel }) => {
       <div style={channelsStyle}>
         <ul style={channelsListStyle}>
           { channels.map((channel, index) => 
-            <li style={onAir === index ? activeListStyle :listStyle} key={index} onClick={() => onChangeChannel(index)}>
+            <li style={onAir === index ? activeListStyle : listStyle} key={index} onClick={() => onChangeChannel(index)}>
               <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_big_' + channel.crawl_site + '.png'}/>
             </li>)
           }
@@ -88,20 +113,33 @@ const HomeComponent = ({ channels, onAir, onChangeChannel }) => {
         <span> 다음 방송예정 </span>
         <span style={{float: 'right', fontSize: '14px', color: '#8D8D8D',}}>전체 편성표 보기 ></span>
       </div>
-      <div>
-        
+      <div style={{display: 'table', width: '1000px',}}>
+        <ul style={productListStyle}>
+          { schedules.map((schedule, index) => 
+            <li key={index} style={index < 8 ? productBoxStyle : hiddenStyle }>
+              <img style={productImageStyle} alt='img' src={schedule.img}/>
+              <div style={{paddingLeft: '10px'}}>
+                <div>
+                  <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + schedule.genre2 + '.png'}/>
+                  <span>{schedule.start_time} ~ {schedule.end_time}</span>
+                </div>
+                <div>{schedule.simple_name}</div>
+                <div>{schedule.price} 원</div>
+              </div>
+            </li>
+            )}
+        </ul>
       </div>
-      
-    </div>
-    <div style={sectionStyle}>
-      TOP 100 보기 
     </div>
   </div>
 )}
 
 HomeComponent.propTypes = {
-  onAirIndex: PropTypes.number,
   channels: PropTypes.array,
+  onAir: PropTypes.number,
+  schedules: PropTypes.array,
+  top100s: PropTypes.array,
+  onChangeChannel: PropTypes.func,
 }
 
 export default HomeComponent;
