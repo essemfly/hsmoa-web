@@ -1,10 +1,5 @@
-export const SEARCH_PRODUCTS = 'SEARCH_PRODUCTS';
-export const CHANGE_KEYWORD = 'CHANGE_KEYWORD';
+export const FETCH_TOP100_REQUESTED = 'FETCH_TOP100_REQUESTED';
+export const FETCH_TOP100_SUCCEEDED = 'FETCH_TOP100_SUCCEEDED';
+export const FETCH_TOP100_FAILED = 'FETCH_TOP100_FAILED';
 
-export const searchProducts = () => {
-    return { type: SEARCH_PRODUCTS }
-}
-
-export const changeKeyword = (keyword) => {
-    return { type: CHANGE_KEYWORD, keyword }
-}
+export const fetchTop100ProductsRequested = () => ({ type: FETCH_TOP100_REQUESTED })

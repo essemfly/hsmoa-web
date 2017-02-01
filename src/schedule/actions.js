@@ -1,10 +1,5 @@
-export const SEARCH_PRODUCTS = 'SEARCH_PRODUCTS';
-export const CHANGE_KEYWORD = 'CHANGE_KEYWORD';
+export const FETCH_SCHEDULES_REQUESTED = 'FETCH_SCHEDULES_REQUESTED';
+export const FETCH_SCHEDULES_SUCCEEDED = 'FETCH_SCHEDULES_SUCCEEDED';
+export const FETCH_SCHEDULES_FAILED = 'FETCH_SCHEDULES_FAILED';
 
-export const searchProducts = () => {
-    return { type: SEARCH_PRODUCTS }
-}
-
-export const changeKeyword = (keyword) => {
-    return { type: CHANGE_KEYWORD, keyword }
-}
+export const fetchSchedulesRequested = () => ({type: FETCH_SCHEDULES_REQUESTED })
