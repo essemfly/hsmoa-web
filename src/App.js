@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { HeaderContainer } from './layout';
+import { HeaderContainer, FooterComponent } from './layout';
 import './App.css';
 
 const bodyStyle = {
   paddingTop: '80px',
+  paddingBottom: '237px',
   display: 'table',
   width: '100%',
   height: 'inherit',
@@ -17,6 +18,7 @@ class App extends Component {
         <div style={bodyStyle}>
           {this.props.children}
         </div>
+        <FooterComponent />
       </div>
     );
   }
