@@ -1,5 +1,6 @@
-import React, { PropTypes } from 'react';
-import FlowPlayer from './FlowPlayer';
+import React, { PropTypes } from 'react'
+import FlowPlayer from './FlowPlayer'
+import ProductListComponent from './ProductListComponent'
 
 const baseStyle = {
   width: '100%',
@@ -27,6 +28,7 @@ const listStyle = {
   background: '#FFFFFF',
   lineHeight: '39px',
   boxShadow: 'inset 0 -1px 0 0 #EEEEEE',
+  cursor: 'pointer',
 }
 
 const logoStyle = {
@@ -53,44 +55,6 @@ const channelsListStyle = {
   height: '100%',
 }
 
-const sectionStyle = { 
-  marginTop: '25px',
-  textAlign: 'left',
-}
-
-const sectionHeaderStyle = {
-  fontSize: '18px',
-  lineHeight: '21px',
-  marginTop: '18px',
-  marginBottom: '18px',
-}
-
-const productListStyle = {
-  position: 'relative',
-  maxWidth: '980px',
-  minWidth: '780px',
-  display: 'table-cell',
-}
-
-const productBoxStyle = {
-  width: '230px',
-  height: '345px',
-  border: '1px solid #e6e6e6',
-  position: 'relative',
-  float: 'left',
-  marginRight: '20px',
-  marginBottom: '15px',
-}
-
-const hiddenStyle = {
-  display: 'none',
-}
-
-const productImageStyle = {
-  width: '230px',
-  height: '230px',
-}
-
 const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel }) => {
   return (
   <div style={baseStyle}>
@@ -108,29 +72,16 @@ const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel })
         </ul>
       </div>      
     </div>
-    <div style={sectionStyle}>
-      <div style={sectionHeaderStyle}>
-        <span> 다음 방송예정 </span>
-        <span style={{float: 'right', fontSize: '14px', color: '#8D8D8D',}}>전체 편성표 보기 ></span>
-      </div>
-      <div style={{display: 'table', width: '1000px',}}>
-        <ul style={productListStyle}>
-          { schedules.map((schedule, index) => 
-            <li key={index} style={index < 8 ? productBoxStyle : hiddenStyle }>
-              <img style={productImageStyle} alt='img' src={schedule.img}/>
-              <div style={{paddingLeft: '10px'}}>
-                <div>
-                  <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + schedule.genre2 + '.png'}/>
-                  <span>{schedule.start_time} ~ {schedule.end_time}</span>
-                </div>
-                <div>{schedule.simple_name}</div>
-                <div>{schedule.price} 원</div>
-              </div>
-            </li>
-            )}
-        </ul>
-      </div>
-    </div>
+    <ProductListComponent 
+      title={'다음 방송예정'}
+      expand={{title: '전체 편성표보기', link: '/schedule'}}
+      products={schedules}
+    />
+    <ProductListComponent 
+      title={'오늘의 인기상품'}
+      expand={{title: 'TOP100 보기', link: '/top'}}
+      products={top100s}
+    />
   </div>
 )}
 
