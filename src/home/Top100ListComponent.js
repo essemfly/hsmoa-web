@@ -45,7 +45,7 @@ const logoStyle = {
   verticalAlign: 'middle',
 }
 
-const ProductListComponent = ({title, expand, products}) => (
+const Top100ListComponent = ({title, expand, products}) => (
     <div style={sectionStyle}>
       <div style={sectionHeaderStyle}>
         <span> {title} </span>
@@ -61,7 +61,7 @@ const ProductListComponent = ({title, expand, products}) => (
                   <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
                   <span>{product.start_time} ~ {product.end_time}</span>
                 </div>
-                <div>{product.simple_name}</div>
+                <div>{product.name}</div>
                 <div>{product.price} 원</div>
               </div>
             </li>
@@ -71,10 +71,10 @@ const ProductListComponent = ({title, expand, products}) => (
     </div>
 )
 
-ProductListComponent.propTypes = {
+Top100ListComponent.propTypes = {
     title: PropTypes.string,
     expand: PropTypes.object,
     products: PropTypes.array,
 }
 
-export default ProductListComponent
+export default Top100ListComponent

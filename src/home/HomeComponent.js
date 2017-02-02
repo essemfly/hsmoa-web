@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import FlowPlayer from './FlowPlayer'
-import ProductListComponent from './ProductListComponent'
+import ScheduleListComponent from './ScheduleListComponent'
+import Top100ListComponent from './Top100ListComponent'
 
 const baseStyle = {
   width: '100%',
@@ -72,12 +73,12 @@ const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel })
         </ul>
       </div>      
     </div>
-    <ProductListComponent 
+    <ScheduleListComponent 
       title={'다음 방송예정'}
       expand={{title: '전체 편성표보기', link: '/schedule'}}
       products={schedules}
     />
-    <ProductListComponent 
+    <Top100ListComponent 
       title={'오늘의 인기상품'}
       expand={{title: 'TOP100 보기', link: '/top'}}
       products={top100s}
