@@ -1,22 +1,27 @@
 import { connect } from 'react-redux'
-import { searchProducts, changeKeyword } from './actions'
+import { fetchSchedulesRequested } from './actions'
 import ScheduleComponent from './ScheduleComponent'
 
 const mapStateToProps = (state) => {
+  console.log(state.scheduleReducer.filteredSchedules);
   return {
-    onAir: state.homeReducer.onAirIndex,
-    channels: state.homeReducer.channels,
+    filter: state.scheduleReducer.filter,
+    schedules: state.scheduleReducer.filteredSchedules,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
+  dispatch(fetchSchedulesRequested())
   return {
-    onSearchClick: () => {
-      dispatch(searchProducts())
+    onClickCategory: (index) => {
+      // TO BE DEVELOPED
     },
-    onChangeKeyword: (keyword) => {
-      dispatch(changeKeyword(keyword))
-    }
+    onClickChannels: (index) => {
+      // TO BE DEVELOPED
+    },
+    onClickDay: (day) => {
+      // TO BE DEVELOPED
+    } 
   }
 }
 
