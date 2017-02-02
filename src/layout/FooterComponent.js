@@ -1,5 +1,4 @@
 import React from 'react';
-import footer_logo from '../../public/footer_logo.png';
 import footer_appstore from '../../public/footer_appstore.png';
 import footer_googleplay from '../../public/footer_googleplay.png';
 import footer_background from '../../public/footer_background.png';
@@ -52,7 +51,7 @@ const FooterComponent = () => (
     <div style={backgroundContainerStyle}>
       <div style={containerStyle}>
         <div style={headStyle}>
-          <img src={footer_logo} alt="bgImg"/>
+          <img style={{height: '26px',}} src='http://thum.buzzni.com/unsafe/796x0/smart/https://s3-ap-northeast-1.amazonaws.com/media.buzzni.net/2017/02/02/1486012024_efe1c7ce9614b65ca1631bba2a1dc925.png' alt="bgImg"/>
           <div style={linkTextStyle}>
             <span>개인정보 이용약관</span><span> | </span>
             <span>제휴/광고안내</span><span> | </span>

@@ -41,6 +41,7 @@ const playerStyle = {
   display: 'table-cell',
   border: '1px solid #dddddd',
   background: 'black',
+  position: 'relative',
 }
 
 const channelsStyle = {
@@ -56,11 +57,39 @@ const channelsListStyle = {
   height: '100%',
 }
 
+const videoMarkerStyle = {
+  zIndex: '100',
+  width: '868px',
+  height: '50px',
+  background: '#44464c',
+  color: 'white',
+  position: 'absolute',
+  bottom: '0',
+  opacity: '0.9',
+}
+
+const videoMarkerTextStyle = {
+  lineHeight: '50px',
+  fontSize: '18px',
+  float: 'left',
+  paddingLeft: '20px',
+}
+
 const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel }) => {
+
+  const formatPhone = (input) => (input.length < 1 ? '' : input.slice(0,3) + '-' + input.slice(3,6) + '-' + input.slice(6,10));
+
   return (
   <div style={baseStyle}>
     <div style={videoSectionStyle}>
       <div style={playerStyle}>
+        <div style={videoMarkerStyle}>
+          <span style={videoMarkerTextStyle}>
+           {channels.length > 0 ? 
+             (channels[onAir].ars.length > 0 ? 
+              '자동 ' + formatPhone(channels[onAir].ars) + '   ' + '상담 ' + formatPhone(channels[onAir].call) : '' ) : ''}
+          </span>
+        </div>
         <FlowPlayer src={ channels.length > 0 ? channels[onAir].ios_video : 'http://livem.gsshop.com/gsmyshop_sd/_definst_/gsmyshop_sd.stream/playlist.m3u8'} />
       </div>
       <div style={channelsStyle}>
