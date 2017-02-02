@@ -17,9 +17,9 @@ const leftNavStyle = {
 }
 
 const scheduleListStyle = {
-  height: '1500px',
   display: 'table-cell',
   paddingLeft: '30px',
+  paddingBottom: '50px',
 }
 
 const ScheduleComponent = ({ filter, schedules, onClickCategory, onClickChannels, onClickDay }) => {

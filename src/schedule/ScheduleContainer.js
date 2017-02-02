@@ -3,7 +3,6 @@ import { fetchSchedulesRequested } from './actions'
 import ScheduleComponent from './ScheduleComponent'
 
 const mapStateToProps = (state) => {
-  console.log(state.scheduleReducer.filteredSchedules);
   return {
     filter: state.scheduleReducer.filter,
     schedules: state.scheduleReducer.filteredSchedules,
