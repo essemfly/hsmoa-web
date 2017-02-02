@@ -67,7 +67,6 @@ const discountTextStyle = {
   color: '#aaaaaa',
   fontWeight: 'bold',
   textDecoration: 'line-through',
-  marginBottom: '2px',
 }
 
 const priceTextStyle = {

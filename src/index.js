@@ -13,7 +13,7 @@ const history = syncHistoryWithStore(browserHistory, rootStore)
 
 ReactDOM.render((
   <Provider store={rootStore}>
-    <Router history={history}>
+    <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={HomeContainer}/>
         <Route path="top" component={Top100Container}/>
