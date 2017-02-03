@@ -87,7 +87,7 @@ const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel })
           <span style={videoMarkerTextStyle}>
            {channels.length > 0 ? 
              (channels[onAir].ars.length > 0 ? 
-              '자동 ' + formatPhone(channels[onAir].ars) + '   ' + '상담 ' + formatPhone(channels[onAir].call) : '' ) : ''}
+              '자동 ' + formatPhone(channels[onAir].ars) + '  상담 ' + formatPhone(channels[onAir].call) : '' ) : ''}
           </span>
         </div>
         <FlowPlayer src={ channels.length > 0 ? channels[onAir].ios_video : 'http://livem.gsshop.com/gsmyshop_sd/_definst_/gsmyshop_sd.stream/playlist.m3u8'} />
