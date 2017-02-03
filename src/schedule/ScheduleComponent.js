@@ -14,6 +14,7 @@ const leftNavStyle = {
   height: '500px',
   marginRight: '30px',
   display: 'table-cell',
+  textAlign: 'initial',
 }
 
 const scheduleListStyle = {
@@ -22,11 +23,16 @@ const scheduleListStyle = {
   paddingBottom: '50px',
 }
 
-const ScheduleComponent = ({ filter, schedules, onClickCategory, onClickChannels, onClickDay }) => {
+const ScheduleComponent = ({ filter, schedules, onClickCategory, onClickChannel, onClickDay }) => {
   return (
     <div style={baseStyle}>
       <div style={leftNavStyle}>
-        <ScheduleFilterComponent />
+        <ScheduleFilterComponent 
+          filter={filter}
+          onClickCategory={onClickCategory}
+          onClickChannel={onClickChannel}
+          onClickDay={onClickDay}
+        />
       </div>
       <div style={scheduleListStyle}>
         <ScheduleListComponent schedules={schedules} />
@@ -39,7 +45,7 @@ ScheduleComponent.propTypes = {
   filter: PropTypes.object,
   schedules: PropTypes.object,
   onClickCategory: PropTypes.func,
-  onClickChannels: PropTypes.func,
+  onClickChannel: PropTypes.func,
   onClickDay: PropTypes.func,
 }
 

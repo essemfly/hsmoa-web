@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchSchedulesRequested } from './actions'
+import { fetchSchedulesRequested, filterCategoryChanged, filterChannelChanged, filterDayChanged, } from './actions'
 import ScheduleComponent from './ScheduleComponent'
 
 const mapStateToProps = (state) => {
@@ -12,13 +12,16 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   dispatch(fetchSchedulesRequested())
   return {
-    onClickCategory: (index) => {
+    onClickCategory: (category, val) => {
+      dispatch(filterCategoryChanged(category, val))
       // TO BE DEVELOPED
     },
-    onClickChannels: (index) => {
+    onClickChannel: (channel, val) => {
+      dispatch(filterChannelChanged(channel, val))
       // TO BE DEVELOPED
     },
     onClickDay: (day) => {
+      dispatch(filterDayChanged(day))
       // TO BE DEVELOPED
     } 
   }
