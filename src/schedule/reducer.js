@@ -3,7 +3,6 @@ import {
     FETCH_SCHEDULES_FAILED,
     FILTER_CATEGORY_CHANGED,
     FILTER_CHANNEL_CHANGED,
-    FILTER_DAY_CHANGED 
 } from './actions'
 
 const initialState = {
@@ -104,7 +103,12 @@ export const scheduleReducer = (state=initialState, action) => {
     let newSchedules = {}
     switch (action.type) {
         case FETCH_SCHEDULES_SUCCEEDED:
-            return { ...state, rawSchedules: action.data, filteredSchedules: action.data}
+            newFilter = {
+                date: action.date ? new Date(action.date).getDate().toString() : '',
+                categories: [],
+                channels: [],
+            } 
+            return { ...state, filter: newFilter, rawSchedules: action.data, filteredSchedules: action.data}
         case FETCH_SCHEDULES_FAILED:
             return { ...state }
         case FILTER_CATEGORY_CHANGED:
@@ -126,8 +130,6 @@ export const scheduleReducer = (state=initialState, action) => {
             }
             newSchedules = getFilteredSchedules(newFilter, state.rawSchedules)
             return { ...state, filter: newFilter, filteredSchedules: newSchedules }
-        case FILTER_DAY_CHANGED:
-            return { ...state }
         default:
             return state;
     }

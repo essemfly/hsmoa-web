@@ -23,7 +23,7 @@ const scheduleListStyle = {
   paddingBottom: '50px',
 }
 
-const ScheduleComponent = ({ filter, schedules, onClickCategory, onClickChannel, onClickDay }) => {
+const ScheduleComponent = ({ filter, schedules, onClickCategory, onClickChannel, onClickDay, selectedDay }) => {
   return (
     <div style={baseStyle}>
       <div style={leftNavStyle}>
@@ -32,6 +32,7 @@ const ScheduleComponent = ({ filter, schedules, onClickCategory, onClickChannel,
           onClickCategory={onClickCategory}
           onClickChannel={onClickChannel}
           onClickDay={onClickDay}
+          selectedDay={selectedDay}
         />
       </div>
       <div style={scheduleListStyle}>
@@ -47,6 +48,7 @@ ScheduleComponent.propTypes = {
   onClickCategory: PropTypes.func,
   onClickChannel: PropTypes.func,
   onClickDay: PropTypes.func,
+  selectedDay: PropTypes.number,
 }
 
 export default ScheduleComponent;

@@ -11,7 +11,7 @@ const ScheduleListComponent = ({ schedules }) => {
   return (
     <div>
       <BeforeLiveListComponent schedules={schedules.before_live} />
-      <LiveListComponent schedules={schedules.live[0].data} />
+      <LiveListComponent schedules={schedules.live.length > 0 ? schedules.live[0].data : []} />
       <AfterLiveListComponent schedules={schedules.after_live} />
     </div>
   );

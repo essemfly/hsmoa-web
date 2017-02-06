@@ -28,26 +28,49 @@ const selectedDayStyle = {
   borderRadius: '15px',
 }
 
+const saturdayStyle = {
+  color: '#4a90e2',
+}
 
-const ScheduleCalendarComponent = ({onClickDay}) => {
+const sundayStyle = {
+  color: '#f3616a',
+}
+
+const dimStyle = {
+  opacity: 0.4,
+}
+
+const ScheduleCalendarComponent = ({selectedDay, onClickDay}) => {
   const daysToShown = 21
   const startDay = new Date()
-  const today = new Date().getDate()
-  startDay.setDate(today -  startDay.getDay() - 7)
+  const today = startDay.getDate().toString()
+  let dayDifference = today-startDay.getDay() -7
+  startDay.setDate(dayDifference)
+  dayDifference -= today
 
-  const dates = []
   const dateList = []
   let dateListJSX = []
 
   for (let i=0; i<daysToShown; i++) {
     let tempDate = {
-      date: startDay.getDate(),
+      date: startDay.getDate().toString(),
       full: startDay.toISOString(),
+      day: startDay.getDay(),
     }
+
     dateListJSX.push(
       <td style={dateTextStyle} key={i} onClick={(evt) => 
       onClickDay(tempDate.full)}>
-      <div style={ tempDate.date === today ? todayStyle: tempDate.date === 8 ? selectedDayStyle:{}}>{tempDate.date}</div>
+        <div style={Object.assign(
+          tempDate.date === today ? todayStyle : {},
+          tempDate.date === selectedDay ? selectedDayStyle:{},
+          tempDate.day === 0 ? sundayStyle:{},
+          tempDate.day === 6 ? saturdayStyle:{},
+          Math.abs(dayDifference) > 7 ? dimStyle:{},
+          )
+          }>
+          {tempDate.date}
+        </div>
       </td>
     )
     if (dateListJSX.length % 7 === 0) {
@@ -58,8 +81,8 @@ const ScheduleCalendarComponent = ({onClickDay}) => {
     }
   
     startDay.setDate(startDay.getDate() + 1)
+    dayDifference += 1
   }
-  console.log(dates);
   
 
   return (
@@ -72,6 +95,7 @@ const ScheduleCalendarComponent = ({onClickDay}) => {
 }
 
 ScheduleCalendarComponent.propTypes = {
+  selectedDay: PropTypes.string,
   onClickDay: PropTypes.func,
 }
 

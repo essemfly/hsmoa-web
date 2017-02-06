@@ -12,7 +12,7 @@ const filterHeaderStyle = {
 }
 
 const ScheduleFilterComponent = ({ filter, onClickCategory, onClickChannel, onClickDay }) => {
-
+  
   const categories = [ '생활·주방', '가전·디지털', '화장품·미용', '패션·잡화', '유아·아동', '여행·레저', '식품·건강', '보험']
   const channels = {
     'nsmall': 'NS홈쇼핑',
@@ -38,7 +38,7 @@ const ScheduleFilterComponent = ({ filter, onClickCategory, onClickChannel, onCl
       <div style={filterSectionStyle}>
         <h4 style={filterHeaderStyle}>방송 날짜</h4>
         <div>
-          <ScheduleCalendarComponent onClickDay={onClickDay} />
+          <ScheduleCalendarComponent selectedDay={filter.date} onClickDay={onClickDay} />
         </div>
       </div>
       <div style={filterSectionStyle}>
