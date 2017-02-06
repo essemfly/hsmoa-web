@@ -13,7 +13,24 @@ const filterHeaderStyle = {
 const ScheduleFilterComponent = ({ filter, onClickCategory, onClickChannel, onClickDay }) => {
 
   const categories = [ '생활·주방', '가전·디지털', '화장품·미용', '패션·잡화', '유아·아동', '여행·레저', '식품·건강', '보험']
-  const channels = [ 'CJ오쇼핑', 'GSSHOP', '홈앤쇼핑', '현대홈쇼핑', '롯데홈쇼핑', 'NS홈쇼핑', '공영홈쇼핑', 'CJ오쇼핑+', 'GS마이샵', '현대홈쇼핑+', 'K쇼핑', '신세계쇼핑', 'W쇼핑', '쇼핑엔T']
+  const channels = {
+    'nsmall': 'NS홈쇼핑',
+    'gsshop': 'GSSHOP',
+    'hmall': '현대홈쇼핑',
+    'hmallplus': '현대홈쇼핑플러스샵',
+    'hnsmall': '홈&쇼핑',
+    'lottemall': '롯데홈쇼핑',
+    'lotteimall': '롯데홈쇼핑',
+    'cjmall': 'CJ오쇼핑',
+    'gsmyshop': 'GSMYSHOP',
+    'kshop': 'K쇼핑',
+    'ssgshop': '신세계TV쇼핑',
+    'wshop': 'W쇼핑',
+    'immall': '아임쇼핑',
+    '11st': '11번가',
+    'cjmallplus': 'CJ오쇼핑플러스',
+    'shopnt': '쇼핑엔T'
+  }
 
   return (
     <div>
@@ -38,10 +55,10 @@ const ScheduleFilterComponent = ({ filter, onClickCategory, onClickChannel, onCl
       <div style={filterSectionStyle}>
         <h4 style={filterHeaderStyle}>쇼핑사</h4>
         <div>
-          { channels.map((channel, index) => (
+          { Object.keys(channels).map((channel, index) => (
               <div key={index}>
                 <input type="checkbox" onChange={(evt) => onClickChannel(channel, evt.target.checked)}/>
-                <span> {channel} </span>
+                <span> {channels[channel]}</span>
               </div>
             ))
           }

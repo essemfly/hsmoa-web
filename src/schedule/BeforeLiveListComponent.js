@@ -82,7 +82,10 @@ const BeforeLiveListComponent = ({ schedules }) => {
        { 
          schedules.map((schedule, index) => 
          <div key={index}>
-          <div style={labelStyle}> <span style={labelTextStyle}>{schedule.time} (방송종료)</span> </div>
+           {
+             schedule.data.length > 0 ?
+              <div style={labelStyle}> <span style={labelTextStyle}>{schedule.time} (방송종료)</span> </div> : ''
+           }
           {
             schedule.data.map((product, productIndex) => 
               <div style={scheduleBoxStyle} key={productIndex}>
@@ -113,4 +116,3 @@ BeforeLiveListComponent.propTypes = {
 }
 
 export default BeforeLiveListComponent;
-

@@ -82,7 +82,10 @@ const AfterLiveListComponent = ({ schedules }) => {
        { 
          schedules.map((schedule, index) => 
          <div key={index}>
-          <div style={labelStyle}> <span style={labelTextStyle}>{schedule.time} (방송예정)</span> </div>
+           {
+             schedule.data.length > 0 ?
+              <div style={labelStyle}> <span style={labelTextStyle}>{schedule.time} (방송예정)</span> </div> : ''
+           }
           {
             schedule.data.map((product, productIndex) => 
               <div style={scheduleBoxStyle} key={productIndex}>
@@ -113,4 +116,3 @@ AfterLiveListComponent.propTypes = {
 }
 
 export default AfterLiveListComponent;
-
