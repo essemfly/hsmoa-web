@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import ScheduleCalendarComponent from './ScheduleCalendarComponent'
 
 const filterSectionStyle = {
   paddingBottom: '18px',
@@ -37,7 +38,7 @@ const ScheduleFilterComponent = ({ filter, onClickCategory, onClickChannel, onCl
       <div style={filterSectionStyle}>
         <h4 style={filterHeaderStyle}>방송 날짜</h4>
         <div>
-          필터가 들어갈 예정입니다.
+          <ScheduleCalendarComponent onClickDay={onClickDay} />
         </div>
       </div>
       <div style={filterSectionStyle}>

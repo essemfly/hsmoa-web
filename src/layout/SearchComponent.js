@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { Icon } from 'antd';
 
 const formStyle = {
     textAlign: "right",
@@ -26,7 +25,6 @@ const SearchComponent = ({ keyword, onSearchClick, onChangeKeyword }) => (
   <form onSubmit={onSearchClick} style={formStyle}>
     <input type="text" style={searchStyle} value={keyword} onChange={(evt) => onChangeKeyword(evt.target.value)} />
     <span style={iconSpanStyle} onClick={onSearchClick}>
-      <Icon type="search" style={iconStyle} />
     </span>
   </form>
 )

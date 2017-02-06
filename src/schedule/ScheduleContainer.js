@@ -21,6 +21,7 @@ const mapDispatchToProps = (dispatch) => {
       // TO BE DEVELOPED
     },
     onClickDay: (day) => {
+      console.log(day);
       dispatch(filterDayChanged(day))
       // TO BE DEVELOPED
     } 

@@ -1,5 +1,5 @@
-@import '~antd/dist/antd.css';
 @import '~flowplayer/dist/skin/skin.css';
+@import './antd.css';
 
 #root {
   height: initial;
@@ -38,3 +38,4 @@
 a {
   color: black;
 }
+
