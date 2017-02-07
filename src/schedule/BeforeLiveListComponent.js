@@ -16,17 +16,27 @@ const labelTextStyle = {
   lineHeight: '30px',
 }
 
+const productBoxStyle = {
+  border: '1px solid #e5e5e5',
+  marginBottom: '10px',
+}
+
 const scheduleBoxStyle = {
   width: '690px',
   height: '160px',
-  border: '1px solid #e5e5e5',
-  marginBottom: '10px',
   display: 'table',
 }
 
 const scheduleImageStyle = {
   width: '160px',
   height: '160px',
+  display: 'table-cell',
+  position: 'relative',
+}
+
+const subScheduleImageStyle = {
+  width: '80px',
+  height: '80px',
   display: 'table-cell',
   position: 'relative',
 }
@@ -76,6 +86,38 @@ const priceTextStyle = {
   fontWeight: 'bold',
 }
 
+const subTitleStyle = {
+  lineHeight: '17px',
+  fontSize: '14px',
+}
+
+const subProductBoxStyle = {
+  margin: '10px',
+}
+
+const subDiscountTextStyle = {
+  fontSize: '10',
+  color: '#aaaaaa',
+  fontWeight: 'bold',
+  textDecoration: 'line-through',
+}
+
+const subPriceTextStyle = {
+  fontSize: '16px',
+  color: '#ea1b27',
+  fontWeight: 'bold',
+}
+
+const subScheduleDescStyle = {
+  width: '100%',
+  verticalAlign: 'top',
+  display: 'table-cell',
+  padding: '11px 16px 0 16px',
+  textAlign: 'initial',
+  position: 'relative',
+  borderTop: '1px solid rgba(0, 0, 0, 0.05)'
+}
+
 class BeforeLiveListComponent extends Component {
   componentDidMount() {
     window.scroll(0,this.refs.hoit.scrollHeight + 10)
@@ -93,7 +135,8 @@ class BeforeLiveListComponent extends Component {
            }
           {
             schedule.data.map((product, productIndex) => 
-              <div style={scheduleBoxStyle} key={productIndex}>
+            <div style={productBoxStyle} key={productIndex}>
+              <div style={scheduleBoxStyle}>
                 <div style={scheduleImageStyle}>
                   <img style={scheduleImageStyle} src={product.img} alt="productImg"/>
                 </div>
@@ -103,10 +146,28 @@ class BeforeLiveListComponent extends Component {
                   <div style={titleStyle}> {product.name} </div>
                   <div style={priceDivStyle}> 
                     <div style={discountTextStyle}> {product.org_price}원</div>
-                    <div style={priceTextStyle}> {product.price}<span style={{fontSize: '14px'}}>원</span></div> 
+                    <div style={priceTextStyle}>{product.price}<span style={{fontSize: '14px'}}>원</span></div> 
                   </div>
                 </div>
               </div>
+              {
+                product.same_time_item ? 
+                  product.same_time_item.map((item, itemIndex) => 
+                    <div key={itemIndex} style={subProductBoxStyle}>
+                      <div style={subScheduleImageStyle}>
+                        <img style={subScheduleImageStyle} src={item.img} alt="itemImg"/>
+                      </div>
+                      <div style={subScheduleDescStyle}>
+                        <div style={subTitleStyle}>{item.name}</div>
+                        <div style={priceDivStyle}>
+                          <div style={subDiscountTextStyle}>{item.org_price}원 </div>
+                          <div style={subPriceTextStyle}>{item.price}<span style={{fontSize: '11px'}}>원</span> </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : ''
+              }
+            </div>
             )
           }
           </div>
