@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 const labelStyle = {
   width: '160px',
@@ -76,11 +76,16 @@ const priceTextStyle = {
   fontWeight: 'bold',
 }
 
-const BeforeLiveListComponent = ({ schedules }) => {
-  return (
-    <div>
+class BeforeLiveListComponent extends Component {
+  componentDidMount() {
+    window.scroll(0,this.refs.hoit.scrollHeight + 10)
+  }
+
+  render () {
+    return (
+    <div ref="hoit">
        { 
-         schedules.map((schedule, index) => 
+         this.props.schedules.map((schedule, index) => 
          <div key={index}>
            {
              schedule.data.length > 0 ?
@@ -109,6 +114,7 @@ const BeforeLiveListComponent = ({ schedules }) => {
       }
     </div>
   );
+  }
 }
 
 BeforeLiveListComponent.propTypes = {
