@@ -1,21 +1,18 @@
 import { connect } from 'react-redux'
-import { searchProducts, changeKeyword } from './actions'
+import { changeCategory } from './actions'
 import Top100Component from './Top100Component'
 
 const mapStateToProps = (state) => {
   return {
-    onAir: state.homeReducer.onAirIndex,
-    channels: state.homeReducer.channels,
+    category: state.top100Reducer.category,
+    products: state.top100Reducer.products,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSearchClick: () => {
-      dispatch(searchProducts())
-    },
-    onChangeKeyword: (keyword) => {
-      dispatch(changeKeyword(keyword))
+    changeCategory: (category) => {
+      dispatch(changeCategory(category))
     }
   }
 }
