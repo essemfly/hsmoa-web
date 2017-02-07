@@ -5,10 +5,11 @@ import { Link } from 'react-router'
 const headerLayoutStyle = {
   width: '100%',
   borderBottom: '1px solid #bbb',
-  position: 'absolute',
+  position: 'fixed',
   top: 0,
   height: '80px',
   backgroundColor: '#FFFFFF',
+  zIndex: '9999',
 }
 
 const headerStyle = {  

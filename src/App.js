@@ -5,6 +5,7 @@ import './App.css';
 const bodyStyle = {
   paddingTop: '80px',
   paddingBottom: '60px',
+  minHeight: '1107px',
   display: 'table',
   width: '100%',
   height: 'inherit',

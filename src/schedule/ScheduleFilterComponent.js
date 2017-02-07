@@ -1,6 +1,10 @@
 import React, { PropTypes } from 'react'
 import ScheduleCalendarComponent from './ScheduleCalendarComponent'
 
+const filterNavStyle = {
+  position: 'fixed',
+}
+
 const filterSectionStyle = {
   paddingBottom: '18px',
   borderBottom: 'solid 1px #dddddd',
@@ -34,7 +38,7 @@ const ScheduleFilterComponent = ({ filter, onClickCategory, onClickChannel, onCl
   }
 
   return (
-    <div>
+    <div style={filterNavStyle}>
       <div style={filterSectionStyle}>
         <h4 style={filterHeaderStyle}>방송 날짜</h4>
         <div>
