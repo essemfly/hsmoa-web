@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { changeCategory } from './actions'
+import { fetchTop100ProductsRequested } from './actions'
 import Top100Component from './Top100Component'
 
 const mapStateToProps = (state) => {
@@ -10,9 +10,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
+  dispatch(fetchTop100ProductsRequested())
   return {
-    changeCategory: (category) => {
-      dispatch(changeCategory(category))
+    onClickCategory: (category) => {
+      dispatch(fetchTop100ProductsRequested(category))
     }
   }
 }

@@ -10,7 +10,7 @@ const baseStyle = {
   display: 'table',
 }
 const leftNavStyle = {
-  width: '260px',
+  width: '160px',
   height: '500px',
   marginRight: '30px',
   display: 'table-cell',
@@ -23,13 +23,13 @@ const scheduleListStyle = {
   paddingBottom: '50px',
 }
 
-const Top100Component = ({ category, products, changeCategory }) => {
+const Top100Component = ({ category, products, onClickCategory }) => {
   return (
     <div style={baseStyle}>
       <div style={leftNavStyle}>
         <Top100FilterComponent 
           category={category}
-          changeCategory={changeCategory}
+          onClickCategory={onClickCategory}
         />
       </div>
       <div style={scheduleListStyle}>
@@ -42,7 +42,7 @@ const Top100Component = ({ category, products, changeCategory }) => {
 Top100Component.propTypes = {
   category: PropTypes.string,
   products: PropTypes.array,
-  changeCategory: PropTypes.func,
+  onClickCategory: PropTypes.func,
 }
 
 export default Top100Component;
