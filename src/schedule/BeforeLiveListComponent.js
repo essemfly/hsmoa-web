@@ -96,7 +96,7 @@ const subProductBoxStyle = {
 }
 
 const subDiscountTextStyle = {
-  fontSize: '10',
+  fontSize: '10px',
   color: '#aaaaaa',
   fontWeight: 'bold',
   textDecoration: 'line-through',
@@ -120,12 +120,12 @@ const subScheduleDescStyle = {
 
 class BeforeLiveListComponent extends Component {
   componentDidMount() {
-    window.scroll(0,this.refs.hoit.scrollHeight + 10)
+    window.scroll(0,this.refs.schedule.scrollHeight + 10)
   }
 
   render () {
     return (
-    <div ref="hoit">
+    <div ref="schedule">
        { 
          this.props.schedules.map((schedule, index) => 
          <div key={index}>
