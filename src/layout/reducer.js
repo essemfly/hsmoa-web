@@ -20,5 +20,3 @@ export const headerReducer = (state= initialState, action) => {
       return state
   }
 }
-
-
