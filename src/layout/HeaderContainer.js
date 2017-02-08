@@ -4,6 +4,7 @@ import HeaderComponent from './HeaderComponent'
 
 const mapStateToProps = (state) => {
   return {
+    route: state.routing.locationBeforeTransitions.pathname,
     keyword: state.headerReducer.searchKeyword,
   }
 }

@@ -55,7 +55,7 @@ const searchBoxStyle = {
   paddingLeft: '50px',
 }
 
-const HeaderComponent = ({ keyword, onSearchClick, onChangeKeyword }) => (
+const HeaderComponent = ({ route, keyword, onSearchClick, onChangeKeyword }) => (
     <div style={headerLayoutStyle}>
       <div style={headerStyle}>
         <div style={logoDivStyle}>
@@ -64,9 +64,9 @@ const HeaderComponent = ({ keyword, onSearchClick, onChangeKeyword }) => (
           </Link>
         </div>
         <div style={navStyle}>
-          <span className={window.location.pathname === '/' ? 'active' : ''} style={navItemStyle}><Link to="/">홈</Link></span>
-          <span className={window.location.pathname === '/schedule' ? 'active' : ''} style={navItemStyle}><Link to="/schedule">편성표</Link></span>
-          <span className={window.location.pathname === '/top' ? 'active' : ''} style={navItemStyle}><Link to="/top">TOP100</Link></span>
+          <span className={route === '/' ? 'active' : ''} style={navItemStyle}><Link to="/">홈</Link></span>
+          <span className={route === '/schedule' ? 'active' : ''} style={navItemStyle}><Link to="/schedule">편성표</Link></span>
+          <span className={route === '/top' ? 'active' : ''} style={navItemStyle}><Link to="/top">TOP100</Link></span>
         </div>
         <div style={searchBoxStyle}>
           <SearchComponent keyword={keyword} onChangeKeyword={onChangeKeyword} onSearchClick={onSearchClick} />
