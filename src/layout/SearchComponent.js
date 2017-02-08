@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from 'react'
+import search_icon from './search_icon.png'
 
 const formStyle = {
     textAlign: "right",
@@ -10,23 +11,26 @@ const searchStyle = {
     width: "80%",
     padding: "0 15px"
 }
-const iconSpanStyle = {
-    padding: "11px",
-    backgroundColor: "#F24040",
-    cursor: "pointer",
+
+const iconDivStyle = {
+    display: 'inline-block',
+    verticalAlign: 'top',
 }
 
 const iconStyle = {
-    fontSize: "17px",
-    color: "white",
+    height: '37px',
+    cursor: 'pointer',
 }
 
 const SearchComponent = ({ keyword, onSearchClick, onChangeKeyword }) => (
-  <form onSubmit={onSearchClick} style={formStyle}>
-    <input type="text" style={searchStyle} value={keyword} onChange={(evt) => onChangeKeyword(evt.target.value)} />
-    <span style={iconSpanStyle} onClick={onSearchClick}>
-    </span>
-  </form>
+  <div>
+    <form onSubmit={onSearchClick} style={formStyle}>
+        <input type="text" style={searchStyle} value={keyword} onChange={(evt) => onChangeKeyword(evt.target.value)} />
+        <div style={iconDivStyle}>
+            <img style={iconStyle} src={search_icon} alt='searchIcon' onClick={onSearchClick}/>
+        </div>
+    </form>
+  </div>
 )
 
 SearchComponent.PropTypes = {
