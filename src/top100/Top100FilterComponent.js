@@ -27,6 +27,7 @@ const filterSectionStyle = {
 const categoryImageStyle = {
   height: '40px',
   cursor: 'pointer',
+  verticalAlign: 'top',
 }
 
 const Top100FilterComponent = ({ category, onClickCategory }) => {

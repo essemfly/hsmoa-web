@@ -47,7 +47,7 @@ const rankingStyle = {
   width: '34px',
 }
 
-const Top100ListComponent = ({products}) => (
+const Top100ListComponent = ({ products }) => (
     <div style={sectionStyle}>
       <div style={{display: 'table', width: '810px',}}>
         <ul style={productListStyle}>
