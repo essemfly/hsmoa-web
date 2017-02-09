@@ -1,5 +1,7 @@
-const SEARCH_PRODUCTS = 'SEARCH_PRODUCTS';
+export const GET_PRODUCT_REQUESTED = 'GET_PRODUCTS_REQUESTED'
+export const GET_PRODUCT_SUCCEEDED = 'GET_PRODUCT_SUCCEEDED'
+export const GET_PRODUCT_FAILED = 'GET_PRODUCT_FAILED'
 
-export const searchProducts = (keyword) => {
-    return { type: SEARCH_PRODUCTS, keyword}
+export const getProductInformation = (productId) => {
+    return { type: GET_PRODUCT_REQUESTED, productId }
 }
