@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 
 const sectionStyle = { 
   marginTop: '10px',
@@ -57,15 +58,17 @@ const Top100ListComponent = ({ products }) => (
                 <span style={rankingStyle}>{index + 1}</span>
               </div>
               <div style={{border: '1px solid #e6e6e6', height: '360px',}}>
-                <img style={productImageStyle} alt='img' src={product.img}/>
-                <div style={{paddingLeft: '10px'}}>
-                  <div>
-                    <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
-                    <span style={{float:'right', marginRight: '10px', lineHeight: '26px',}}>{product.start_time} 방송</span>
+                <Link to={`/i/${product.id}`}>
+                  <img style={productImageStyle} alt='img' src={product.img}/>
+                  <div style={{paddingLeft: '10px'}}>
+                    <div>
+                      <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
+                      <span style={{float:'right', marginRight: '10px', lineHeight: '26px',}}>{product.start_time} 방송</span>
+                    </div>
+                    <div>{product.name}</div>
+                    <div style={priceTextStyle}>{product.price} 원</div>
                   </div>
-                  <div>{product.name}</div>
-                  <div style={priceTextStyle}>{product.price} 원</div>
-                </div>
+                </Link>
               </div>
             </li>
             )}
