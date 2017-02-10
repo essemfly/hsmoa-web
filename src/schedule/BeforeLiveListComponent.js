@@ -121,7 +121,13 @@ const subScheduleDescStyle = {
 
 class BeforeLiveListComponent extends Component {
   componentDidMount() {
-    window.scroll(0,this.refs.schedule.scrollHeight + 10)
+    if (this.props.live) {
+      window.scroll(0,this.refs.schedule.scrollHeight + 10)
+    }
+  }
+
+  componentDidUpdate() {
+    this.props.live ? window.scroll(0,this.refs.schedule.scrollHeight + 10) : window.scroll(0,0)
   }
 
   render () {

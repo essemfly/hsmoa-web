@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 
 const calendarTableStyle = {
   width: '100%',
+  marginTop: '8px',
 }
 
 const dateTextStyle = {
@@ -95,6 +96,15 @@ const ScheduleCalendarComponent = ({selectedDate, onClickDay}) => {
   return (
     <table style={calendarTableStyle}>
       <tbody>
+        <tr>
+          <td style={dateTextStyle}>일</td>
+          <td style={dateTextStyle}>월</td>
+          <td style={dateTextStyle}>화</td>
+          <td style={dateTextStyle}>수</td>
+          <td style={dateTextStyle}>목</td>
+          <td style={dateTextStyle}>금</td>
+          <td style={dateTextStyle}>토</td>
+        </tr>
         {dateList}
       </tbody>
     </table>

@@ -1,22 +1,31 @@
 import React, { PropTypes } from 'react'
-import ScheduleCalendarComponent from './ScheduleCalendarComponent'
+
+import ScheduleDateComponent from './ScheduleDateComponent'
 
 const filterNavStyle = {
   position: 'fixed',
+  width: 'inherit',
 }
 
 const filterSectionStyle = {
   paddingBottom: '18px',
   borderBottom: 'solid 1px #dddddd',
 }
+
 const filterHeaderStyle = {
   fontSize: '15px',
   lineHeight: '19px',
-  marginTop: '18px'
+  marginTop: '18px',
+  marginBottom: '12px',
 }
 
-const ScheduleFilterComponent = ({ filter, onClickCategory, onClickChannel, onClickDay }) => {
-  
+const checkboxStyle = {
+  margin: '8px 0',
+  fontSize: '13px',
+  color: '#8d8d8d',
+}
+
+const ScheduleFilterComponent = ({ isOpenCalendar, filter, onClickCategory, onClickChannel, onClickDay, changeDate }) => {
   const categories = [ '생활·주방', '가전·디지털', '화장품·미용', '패션·잡화', '유아·아동', '여행·레저', '식품·건강', '보험']
   const channels = {
     'nsmall': 'NS홈쇼핑',
@@ -41,15 +50,13 @@ const ScheduleFilterComponent = ({ filter, onClickCategory, onClickChannel, onCl
     <div style={filterNavStyle}>
       <div style={filterSectionStyle}>
         <h4 style={filterHeaderStyle}>방송 날짜</h4>
-        <div>
-          <ScheduleCalendarComponent selectedDay={filter.date} onClickDay={onClickDay} />
-        </div>
+          <ScheduleDateComponent selectedDate={filter.date} changeDate={changeDate} />
       </div>
       <div style={filterSectionStyle}>
         <h4 style={filterHeaderStyle}>카테고리</h4>
         <div>
           { categories.map((category, index) => (
-              <div key={index}>
+              <div style={checkboxStyle} key={index}>
                 <input type="checkbox" onChange={(evt) => onClickCategory(category, evt.target.checked)}/>
                 <span> {category} </span>
               </div>
@@ -61,7 +68,7 @@ const ScheduleFilterComponent = ({ filter, onClickCategory, onClickChannel, onCl
         <h4 style={filterHeaderStyle}>쇼핑사</h4>
         <div>
           { Object.keys(channels).map((channel, index) => (
-              <div key={index}>
+              <div style={checkboxStyle} key={index}>
                 <input type="checkbox" onChange={(evt) => onClickChannel(channel, evt.target.checked)}/>
                 <span> {channels[channel]}</span>
               </div>

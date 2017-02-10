@@ -3,6 +3,7 @@ import {
     FETCH_SCHEDULES_FAILED,
     FILTER_CATEGORY_CHANGED,
     FILTER_CHANNEL_CHANGED,
+    OPEN_CALENDAR,
 } from './actions'
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
         categories: [],
         channels: [],
     },
+    isOpenCalendar: false,
     rawSchedules: {},
     filteredSchedules: {},
 }
@@ -108,7 +110,7 @@ export const scheduleReducer = (state=initialState, action) => {
                 categories: [],
                 channels: [],
             } 
-            return { ...state, filter: newFilter, rawSchedules: action.data, filteredSchedules: action.data}
+            return { ...state, filter: newFilter, isOpenCalendar: false, rawSchedules: action.data, filteredSchedules: action.data}
         case FETCH_SCHEDULES_FAILED:
             return { ...state }
         case FILTER_CATEGORY_CHANGED:
@@ -130,6 +132,8 @@ export const scheduleReducer = (state=initialState, action) => {
             }
             newSchedules = getFilteredSchedules(newFilter, state.rawSchedules)
             return { ...state, filter: newFilter, filteredSchedules: newSchedules }
+        case OPEN_CALENDAR:
+            return { ...state, isOpenCalendar: !state.isOpenCalendar }
         default:
             return state;
     }

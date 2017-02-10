@@ -18,7 +18,7 @@ const labelTextStyle = {
 }
 
 const scheduleBoxStyle = {
-  width: '690px',
+  width: '790px',
   height: '160px',
   border: '1px solid #e5e5e5',
   marginBottom: '10px',

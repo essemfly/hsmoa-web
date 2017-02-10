@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
-import { fetchSchedulesRequested, filterCategoryChanged, filterChannelChanged, } from './actions'
+import { fetchSchedulesRequested, filterCategoryChanged, filterChannelChanged, openCalendar } from './actions'
 import ScheduleComponent from './ScheduleComponent'
 
 const mapStateToProps = (state) => {
   return {
     filter: state.scheduleReducer.filter,
     schedules: state.scheduleReducer.filteredSchedules,
-    selectedDay: state.scheduleReducer.selectedDay,
+    isOpenCalendar: state.scheduleReducer.isOpenCalendar,
   }
 }
 
@@ -22,7 +22,10 @@ const mapDispatchToProps = (dispatch) => {
     onClickDay: (day) => {
       let newDate = new Date(day)
       dispatch(fetchSchedulesRequested(newDate))
-    } 
+    },
+    changeDate: () => {
+      dispatch(openCalendar())
+    }
   }
 }
 
