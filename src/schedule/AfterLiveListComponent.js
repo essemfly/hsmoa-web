@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 
 const labelStyle = {
   width: '160px',
@@ -89,18 +90,20 @@ const AfterLiveListComponent = ({ schedules }) => {
           {
             schedule.data.map((product, productIndex) => 
               <div style={scheduleBoxStyle} key={productIndex}>
-                <div style={scheduleImageStyle}>
-                  <img style={scheduleImageStyle} src={product.img} alt="productImg"/>
-                </div>
-                <div style={scheduleDescStyle}>
-                  <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/> 
-                  <span style={timeStyle}> | {product.start_time} ~ {product.end_time} </span>
-                  <div style={titleStyle}> {product.name} </div>
-                  <div style={priceDivStyle}> 
-                    <div style={discountTextStyle}> {product.org_price}원</div>
-                    <div style={priceTextStyle}> {product.price}<span style={{fontSize: '14px'}}>원</span></div> 
+                <Link to={`/i/${schedule.id}`}>
+                  <div style={scheduleImageStyle}>
+                    <img style={scheduleImageStyle} src={product.img} alt="productImg"/>
                   </div>
-                </div>
+                  <div style={scheduleDescStyle}>
+                    <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/> 
+                    <span style={timeStyle}> | {product.start_time} ~ {product.end_time} </span>
+                    <div style={titleStyle}> {product.name} </div>
+                    <div style={priceDivStyle}> 
+                      <div style={discountTextStyle}> {product.org_price}원</div>
+                      <div style={priceTextStyle}> {product.price}<span style={{fontSize: '14px'}}>원</span></div> 
+                    </div>
+                  </div>
+                </Link>
               </div>
             )
           }

@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 
 const labelStyle = {
   width: '160px',
@@ -85,18 +86,20 @@ const BeforeLiveListComponent = ({ schedules }) => {
       { 
         schedules.map((schedule, index) => 
         <div style={scheduleBoxStyle} key={index}>
-          <div style={scheduleImageStyle}>
-            <img style={scheduleImageStyle} src={schedule.img} alt="productImg"/>
-          </div>
-          <div style={scheduleDescStyle}>
-            <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + schedule.genre2 + '.png'}/> 
-            <span style={timeStyle}> |   현재방송중 </span>
-            <div style={titleStyle}> {schedule.name} </div>
-            <div style={priceDivStyle}> 
-              <div style={discountTextStyle}> {schedule.org_price}원</div>
-              <div style={priceTextStyle}> {schedule.price}<span style={{fontSize: '14px'}}>원</span></div> 
+          <Link to={`/i/${schedule.id}`}>
+            <div style={scheduleImageStyle}>
+              <img style={scheduleImageStyle} src={schedule.img} alt="productImg"/>
             </div>
-          </div>
+            <div style={scheduleDescStyle}>
+              <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + schedule.genre2 + '.png'}/> 
+              <span style={timeStyle}> |   현재방송중 </span>
+              <div style={titleStyle}> {schedule.name} </div>
+              <div style={priceDivStyle}> 
+                <div style={discountTextStyle}> {schedule.org_price}원</div>
+                <div style={priceTextStyle}> {schedule.price}<span style={{fontSize: '14px'}}>원</span></div> 
+              </div>
+            </div>
+          </Link>
         </div>  
         )
       }

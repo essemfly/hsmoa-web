@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
 
 const labelStyle = {
   width: '160px',
@@ -134,40 +135,44 @@ class BeforeLiveListComponent extends Component {
               <div style={labelStyle}> <span style={labelTextStyle}>{schedule.time} (방송종료)</span> </div> : ''
            }
           {
-            schedule.data.map((product, productIndex) => 
-            <div style={productBoxStyle} key={productIndex}>
-              <div style={scheduleBoxStyle}>
-                <div style={scheduleImageStyle}>
-                  <img style={scheduleImageStyle} src={product.img} alt="productImg"/>
-                </div>
-                <div style={scheduleDescStyle}>
-                  <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/> 
-                  <span style={timeStyle}> | {product.start_time} ~ {product.end_time} </span>
-                  <div style={titleStyle}> {product.name} </div>
-                  <div style={priceDivStyle}> 
-                    <div style={discountTextStyle}> {product.org_price}원</div>
-                    <div style={priceTextStyle}>{product.price}<span style={{fontSize: '14px'}}>원</span></div> 
-                  </div>
-                </div>
-              </div>
-              {
-                product.same_time_item ? 
-                  product.same_time_item.map((item, itemIndex) => 
-                    <div key={itemIndex} style={subProductBoxStyle}>
-                      <div style={subScheduleImageStyle}>
-                        <img style={subScheduleImageStyle} src={item.img} alt="itemImg"/>
-                      </div>
-                      <div style={subScheduleDescStyle}>
-                        <div style={subTitleStyle}>{item.name}</div>
-                        <div style={priceDivStyle}>
-                          <div style={subDiscountTextStyle}>{item.org_price}원 </div>
-                          <div style={subPriceTextStyle}>{item.price}<span style={{fontSize: '11px'}}>원</span> </div>
-                        </div>
+            schedule.data.map((product, productIndex) =>
+              <div style={productBoxStyle} key={productIndex}>
+                <Link to={`/i/${product.id}`}>
+                  <div style={scheduleBoxStyle}>
+                    <div style={scheduleImageStyle}>
+                      <img style={scheduleImageStyle} src={product.img} alt="productImg"/>
+                    </div>
+                    <div style={scheduleDescStyle}>
+                      <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/> 
+                      <span style={timeStyle}> | {product.start_time} ~ {product.end_time} </span>
+                      <div style={titleStyle}> {product.name} </div>
+                      <div style={priceDivStyle}> 
+                        <div style={discountTextStyle}> {product.org_price}원</div>
+                        <div style={priceTextStyle}>{product.price}<span style={{fontSize: '14px'}}>원</span></div> 
                       </div>
                     </div>
-                  ) : ''
-              }
-            </div>
+                  </div>
+                </Link>
+                {
+                  product.same_time_item ? 
+                    product.same_time_item.map((item, itemIndex) =>
+                      <div key={itemIndex} style={subProductBoxStyle}>
+                        <Link to={`/i/${product.id}`}>
+                          <div style={subScheduleImageStyle}>
+                            <img style={subScheduleImageStyle} src={item.img} alt="itemImg"/>
+                          </div>
+                          <div style={subScheduleDescStyle}>
+                            <div style={subTitleStyle}>{item.name}</div>
+                            <div style={priceDivStyle}>
+                              <div style={subDiscountTextStyle}>{item.org_price}원 </div>
+                              <div style={subPriceTextStyle}>{item.price}<span style={{fontSize: '11px'}}>원</span> </div>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    ) : ''
+                }
+              </div>
             )
           }
           </div>

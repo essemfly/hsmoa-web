@@ -53,17 +53,19 @@ const Top100ListComponent = ({title, expand, products}) => (
       </div>
       <div style={{display: 'table', width: '1000px',}}>
         <ul style={productListStyle}>
-          { products.map((product, index) => 
+          { products.map((product, index) =>
             <li key={index} style={index < 8 ? productBoxStyle : hiddenStyle }>
-              <img style={productImageStyle} alt='img' src={product.img}/>
-              <div style={{paddingLeft: '10px'}}>
-                <div>
-                  <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
-                  <span>{product.start_time} ~ {product.end_time}</span>
+              <Link to={`/i/${product.id}`}>
+                <img style={productImageStyle} alt='img' src={product.img}/>
+                <div style={{paddingLeft: '10px'}}>
+                  <div>
+                    <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
+                    <span>{product.start_time} ~ {product.end_time}</span>
+                  </div>
+                  <div>{product.name}</div>
+                  <div>{product.price} 원</div>
                 </div>
-                <div>{product.name}</div>
-                <div>{product.price} 원</div>
-              </div>
+              </Link>
             </li>
             )}
         </ul>
