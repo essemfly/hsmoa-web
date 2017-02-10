@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react'
 import FlowPlayer from './FlowPlayer'
 import ScheduleListComponent from './ScheduleListComponent'
 import Top100ListComponent from './Top100ListComponent'
+import buy_button from './images/buy_button.png'
+import detail_button from './images/detail_button.png'
+import { Link } from 'react-router'
 
 const baseStyle = {
   width: '100%',
@@ -75,6 +78,12 @@ const videoMarkerTextStyle = {
   paddingLeft: '20px',
 }
 
+const markerImageStyle = {
+  float:'right',
+  height: '40px',
+  margin: '5px',
+}
+
 const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel }) => {
 
   const formatPhone = (input) => (input.length < 1 ? '' : input.slice(0,3) + '-' + input.slice(3,6) + '-' + input.slice(6,10));
@@ -89,6 +98,12 @@ const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel })
              (channels[onAir].ars.length > 0 ? 
               '자동 ' + formatPhone(channels[onAir].ars) + '  상담 ' + formatPhone(channels[onAir].call) : '' ) : ''}
           </span>
+          <a target="_blank" href={channels[onAir] ? channels[onAir].url : ''}>
+            <img style={markerImageStyle} src={buy_button} alt="구매하기"/>
+          </a>
+          <Link to={`/i/${channels[onAir] ? channels[onAir].id : ''}`}>
+            <img style={markerImageStyle} src={detail_button} alt="상세보기"/>
+          </Link>
         </div>
         <FlowPlayer src={ channels.length > 0 ? channels[onAir].ios_video : 'http://livem.gsshop.com/gsmyshop_sd/_definst_/gsmyshop_sd.stream/playlist.m3u8'} />
       </div>

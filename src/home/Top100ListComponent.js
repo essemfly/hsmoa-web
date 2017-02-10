@@ -36,7 +36,7 @@ const hiddenStyle = {
 }
 
 const productImageStyle = {
-  width: '230px',
+  width: '228px',
   height: '230px',
 }
 
