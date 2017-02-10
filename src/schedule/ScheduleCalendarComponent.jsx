@@ -40,10 +40,17 @@ const dimStyle = {
   opacity: 0.4,
 }
 
-const ScheduleCalendarComponent = ({selectedDay, onClickDay}) => {
+const ScheduleCalendarComponent = ({selectedDate, onClickDay}) => {
+
+  if (selectedDate.getDate === undefined) {
+    return <div></div>
+  }
+
   const daysToShown = 21
   const startDay = new Date()
-  const today = startDay.getDate().toString()
+  const today = startDay.getDate()
+  const userSelectedDate = new Date(selectedDate)
+
   let dayDifference = today-startDay.getDay() -7
   startDay.setDate(dayDifference)
   dayDifference -= today
@@ -53,7 +60,7 @@ const ScheduleCalendarComponent = ({selectedDay, onClickDay}) => {
 
   for (let i=0; i<daysToShown; i++) {
     let tempDate = {
-      date: startDay.getDate().toString(),
+      date: startDay.getDate(),
       full: startDay.toISOString(),
       day: startDay.getDay(),
     }
@@ -63,7 +70,7 @@ const ScheduleCalendarComponent = ({selectedDay, onClickDay}) => {
       onClickDay(tempDate.full)}>
         <div style={Object.assign(
           tempDate.date === today ? todayStyle : {},
-          tempDate.date === selectedDay ? selectedDayStyle:{},
+          tempDate.date === userSelectedDate.getDate() ? selectedDayStyle:{},
           tempDate.day === 0 ? sundayStyle:{},
           tempDate.day === 6 ? saturdayStyle:{},
           Math.abs(dayDifference) > 7 ? dimStyle:{},
@@ -95,7 +102,7 @@ const ScheduleCalendarComponent = ({selectedDay, onClickDay}) => {
 }
 
 ScheduleCalendarComponent.propTypes = {
-  selectedDay: PropTypes.string,
+  selectedDate: PropTypes.object,
   onClickDay: PropTypes.func,
 }
 

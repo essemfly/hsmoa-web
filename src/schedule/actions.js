@@ -6,7 +6,7 @@ export const FILTER_CATEGORY_CHANGED = 'FILTER_CATEGORY_CHANGED'
 export const FILTER_CHANNEL_CHANGED = 'FILTER_CHANNEL_CHANGED'
 
 export const fetchSchedulesRequested = (date) => ({
-    type: FETCH_SCHEDULES_REQUESTED, date: date ? date: '',
+    type: FETCH_SCHEDULES_REQUESTED, date: date ? date: new Date(),
 })
 
 export const filterCategoryChanged = (category, val) => ({

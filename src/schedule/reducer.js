@@ -7,7 +7,7 @@ import {
 
 const initialState = {
     filter: {
-        date: '',
+        date: {},
         categories: [],
         channels: [],
     },
@@ -104,7 +104,7 @@ export const scheduleReducer = (state=initialState, action) => {
     switch (action.type) {
         case FETCH_SCHEDULES_SUCCEEDED:
             newFilter = {
-                date: action.date ? new Date(action.date).getDate().toString() : '',
+                date: action.date,
                 categories: [],
                 channels: [],
             } 
