@@ -85,7 +85,9 @@ const markerImageStyle = {
 }
 
 const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel }) => {
-
+  if (channels.length < 1) {
+    return <div style={baseStyle}/>
+  }
   const formatPhone = (input) => (input.length < 1 ? '' : input.slice(0,3) + '-' + input.slice(3,6) + '-' + input.slice(6,10));
 
   return (
@@ -94,18 +96,17 @@ const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel })
       <div style={playerStyle}>
         <div style={videoMarkerStyle}>
           <span style={videoMarkerTextStyle}>
-           {channels.length > 0 ? 
-             (channels[onAir].ars.length > 0 ? 
-              '자동 ' + formatPhone(channels[onAir].ars) + '  상담 ' + formatPhone(channels[onAir].call) : '' ) : ''}
+           { channels[onAir].ars.length > 0 ? 
+              '자동 ' + formatPhone(channels[onAir].ars) + '  상담 ' + formatPhone(channels[onAir].call) : ''}
           </span>
-          <a target="_blank" href={channels[onAir] ? channels[onAir].url : ''}>
+          <a target="_blank" href={channels[onAir].url}>
             <img style={markerImageStyle} src={buy_button} alt="구매하기"/>
           </a>
-          <Link to={`/i/${channels[onAir] ? channels[onAir].id : ''}`}>
+          <Link to={`/i/${channels[onAir].id}`}>
             <img style={markerImageStyle} src={detail_button} alt="상세보기"/>
           </Link>
         </div>
-        <FlowPlayer src={ channels.length > 0 ? channels[onAir].ios_video : 'http://livem.gsshop.com/gsmyshop_sd/_definst_/gsmyshop_sd.stream/playlist.m3u8'} />
+        <FlowPlayer src={channels[onAir].ios_video} />
       </div>
       <div style={channelsStyle}>
         <ul style={channelsListStyle}>
