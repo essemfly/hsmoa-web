@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import Slick from 'react-slick'
+import Slider from 'react-slick'
 
 const productInfoBoxStyle = {
   height: '320px',
