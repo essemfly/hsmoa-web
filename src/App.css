@@ -39,3 +39,12 @@ a {
   color: black;
 }
 
+.slick-slide {
+  width: 300px;
+}
+
+.slick-dots {
+    position: absolute;
+    display: block;
+    top: 265px;
+}

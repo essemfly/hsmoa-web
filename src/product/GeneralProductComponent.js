@@ -59,19 +59,43 @@ const buyButtonStyle = {
 
 const slickSettings = {
   dots: true,
-  infinite: true,
-  speed: 500,
+  speed: 400,
   slidesToShow: 1,
-  slidesToScroll: 1
+  slidesToScroll: 1,
+  variableWidth: true,
 };
 
+const containerStyle = {
+  position: 'relative',
+  marginRight: '30px',
+  width: '300px',
+  overflow: 'hidden',
+  height: '300px',
+  color: '#333',
+  className: 'hoit'
+}
+
 const GeneralProductComponent = ({ product }) => {
+  if (Object.keys(product).length === 0) {
+    return <div></div>
+  } 
+
   return (
-     <div style={productInfoBoxStyle}>
-      <img style={productImageStyle} alt='img' src={product.img}/>
+    <div style={productInfoBoxStyle}>
+      <div style={containerStyle}>        
+        <Slider {...slickSettings}>
+          {
+            product.img_list.map((img, index) =>
+              <div key={index} className='hoit'>
+                <img style={{width: '300px',}}src={`${img}`} alt={`product${index}`} />
+              </div>  
+            )
+          }
+        </Slider>
+      </div>
       <div style={productInfoStyle}>
         <div style={{marginBottom: '20px',}}>
-          <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
+          <img style={logoStyle} alt='img' src={`http://cache.m.ui.hsmoa.com/media/logo3/logo_${product.genre2}.png`}/>
           <span style={{fontSize: '14px', lineHeight: '17px', marginLeft: '20px', verticalAlign: 'middle',}}>{product.start_time} ~ {product.end_time} </span>
         </div>
         <div style={{fontSize: '18px', lineHeight: '24px', marginBottom: '20px',}}>{product.name}</div>
