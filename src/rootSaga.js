@@ -2,7 +2,7 @@ import { watchStreamings } from './home/sagas'
 import { watchSchedules } from './schedule/sagas'
 import { watchTop100 } from './top100/sagas'
 import { watchProductInfo } from './product/sagas'
-import { watchSearch } from './search/sagas'
+import { watchSearch, watchSearchRefresh} from './search/sagas'
 
 export function* rootSaga() {
     yield[
@@ -11,5 +11,6 @@ export function* rootSaga() {
       watchTop100(),
       watchProductInfo(),
       watchSearch(),
+      watchSearchRefresh(),
     ]
 }

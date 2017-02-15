@@ -60,11 +60,14 @@ class SearchComponent extends Component {
             filter={this.props.filter}
             categories={this.props.categories}
             channels={this.props.channels}
+            onClickLiveStatus={this.props.onClickLiveStatus}
+            onClickCategory={this.props.onClickCategory}
+            onClickChannel={this.props.onClickChannel}
             />
         </div>
         <div style={productListStyle}>
           <div style={resultInfoStyle}>
-            {`"${this.props.searchKeyword}"에 대한 ${this.props.totalProductsCount}개의 상품이 있습니다.`}
+            {`"${this.props.filter.keyword}"에 대한 ${this.props.totalProductsCount}개의 상품이 있습니다.`}
           </div>
           <div style={relatedTextDivStyle}>
             {
@@ -92,6 +95,9 @@ SearchComponent.propTypes = {
   totalProductsCount: PropTypes.number,
   filter: PropTypes.object,
   relatedTexts: PropTypes.object,
+  onClickLiveStatus: PropTypes.func,
+  onClickCategory: PropTypes.func,
+  onClickChannel: PropTypes.func,
 }
 
 export default SearchComponent;

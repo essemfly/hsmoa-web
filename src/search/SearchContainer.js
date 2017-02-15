@@ -1,5 +1,10 @@
 import { connect } from 'react-redux'
-import { searchKeywordRequested } from './actions'
+import { 
+  searchKeywordRequested,
+  filterLiveStatusChanged,
+  filterCategoryChanged,
+  filterChannelChanged,
+} from './actions'
 import SearchComponent from './SearchComponent'
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,7 +23,16 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getSearchResult: (keyword) => {
       dispatch(searchKeywordRequested(keyword))
-    }
+    },
+    onClickLiveStatus: () => {
+      dispatch(filterLiveStatusChanged())
+    },
+    onClickCategory: (filter, category, val) => {
+      dispatch(filterCategoryChanged(filter, category, val))
+    },
+    onClickChannel: (filter, channel, val) => {
+      dispatch(filterChannelChanged(filter, channel, val))
+    },
   }
 }
 

@@ -59,7 +59,7 @@ const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, 
         <div>
           { categories.map((category, index) => (
               <div style={checkboxStyle} key={index}>
-                <input type="checkbox" onChange={(evt) => onClickCategory(category, evt.target.checked)}/>
+                <input type="checkbox" onChange={(evt) => onClickCategory(filter, category, evt.target.checked)}/>
                 <span> {category.ncate3} </span>
               </div>
             ))
@@ -71,7 +71,7 @@ const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, 
         <div>
           { channels.map((channel, index) => (
               <div style={checkboxStyle} key={index}>
-                <input type="checkbox" onChange={(evt) => onClickChannel(channel, evt.target.checked)}/>
+                <input type="checkbox" onChange={(evt) => onClickChannel(filter, channel, evt.target.checked)}/>
                 <span> {channelMappers[channel.key]}</span>
               </div>
             ))
@@ -84,6 +84,8 @@ const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, 
 
 SearchFilterComponent.propTypes = {
   filter: PropTypes.object,
+  categories: PropTypes.array,
+  channels: PropTypes.array,
   onClickCategory: PropTypes.func,
   onClickChannels: PropTypes.func,
   onClickDay: PropTypes.func,

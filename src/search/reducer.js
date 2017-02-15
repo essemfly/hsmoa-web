@@ -1,12 +1,14 @@
 import { 
     SEARCH_KEWORD_SUCCEEDED,
     SEARCH_KEWORD_FAILED,
+    FILTER_CHANGE_SUCCEEDED,
+    FILTER_CHANGE_FAILED,
 } from './actions'
 
 const initialState = {
-  keyword: '',
   filter: {
-    selectedCategories: [],
+    keyword: '',
+    selectedCategory: {},
     selectedChannel: [],
     priceRange: {
       start: 0,
@@ -28,10 +30,10 @@ export const searchReducer = (state = initialState, action) => {
     case SEARCH_KEWORD_SUCCEEDED:
       return { 
         ...state,
-        keyword: action.keyword,
         filter: {
-          selectedCategories: [],
-          selectedChannel: [],
+          keyword: action.keyword,
+          selectedCategory: {},
+          selectedChannels: [],
           priceRange: {
             start: 0,
             end: 999999,
@@ -45,8 +47,17 @@ export const searchReducer = (state = initialState, action) => {
       }
     case SEARCH_KEWORD_FAILED:
       return { ...state }
+    case FILTER_CHANGE_SUCCEEDED:
+      return { 
+          ...state,
+          filter: action.filter,
+          totalProductsCount: action.result.count,
+          products: action.result.data,
+        }
+    case FILTER_CHANGE_FAILED:
+      return { ...state }
     default:
-      return state
+      return { ...state }
   }
 }
 
