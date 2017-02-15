@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { call, put } from 'redux-saga/effects'
-import { takeEvery } from 'redux-saga/effects'
+import { takeEvery, call, put } from 'redux-saga/effects'
+import { browserHistory } from 'react-router'
 import { SEARCH_KEWORD_REQUESTED, SEARCH_KEWORD_SUCCEEDED, SEARCH_KEWORD_FAILED } from './actions'
 
 const getSearchResult = (keyword) => {
@@ -29,8 +29,10 @@ function* searchKeyword(action) {
     try {
         const data = yield call(getSearchResult, action.keyword)
         yield put({
-            type: SEARCH_KEWORD_SUCCEEDED, result: data
+            type: SEARCH_KEWORD_SUCCEEDED, result: data, keyword: action.keyword
         })
+        yield browserHistory.push(`/search/${action.keyword}`)
+        
     } catch (error) {
         yield put({type: SEARCH_KEWORD_FAILED, error})
     }

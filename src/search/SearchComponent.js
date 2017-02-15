@@ -33,7 +33,9 @@ const resultInfoStyle = {
 class SearchComponent extends Component {
   constructor(props) {
     super(props)
-    this.props.getSearchResult(this.props.searchKeyword)
+    if (this.props.products.length < 1 && this.props.params.keyword.length > 0) {
+      this.props.getSearchResult(this.props.params.keyword)
+    }
   }
 
   render() {

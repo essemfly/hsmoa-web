@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import search_icon from './search_icon.png'
 
 const formStyle = {
@@ -22,19 +22,34 @@ const iconStyle = {
     cursor: 'pointer',
 }
 
-const SearchComponent = ({ keyword, onSearchClick, onChangeKeyword }) => (
-  <div>
-    <form onSubmit={onSearchClick} style={formStyle}>
-        <input type="text" style={searchStyle} value={keyword} onChange={(evt) => onChangeKeyword(evt.target.value)} />
-        <div style={iconDivStyle}>
-            <img style={iconStyle} src={search_icon} alt='searchIcon' onClick={onSearchClick}/>
-        </div>
-    </form>
-  </div>
-)
+class SearchComponent extends Component {
+
+    constructor(props) {
+        super(props)
+        this.handleClickEvent = this.handleClickEvent.bind(this)
+    }
+
+    handleClickEvent (evt) {
+        evt.preventDefault();
+        evt.stopPropagation(); 
+        this.props.onSearchClick()
+    }
+
+    render() {
+        return (
+            <div>
+                <form onSubmit={this.handleClickEvent} style={formStyle}>
+                    <input type="text" style={searchStyle} onChange={(evt) => this.props.onChangeKeyword(evt.target.value)} />
+                    <div style={iconDivStyle}>
+                        <img style={iconStyle} src={search_icon} alt='searchIcon' onClick={this.props.onSearchClick}/>
+                    </div>
+                </form>
+            </div>
+        )
+    }
+}
 
 SearchComponent.PropTypes = {
-  keyword: PropTypes.string,
   onSearchClick: PropTypes.func.isRequired,
   onChangeKeyword: PropTypes.func.isRequired,
 }

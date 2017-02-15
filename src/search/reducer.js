@@ -24,6 +24,7 @@ export const searchReducer = (state= initialState, action) => {
     case SEARCH_KEWORD_SUCCEEDED:
       return { 
         ...state,
+        keyword: action.keyword,
         filter: {
           selectedCategories: [],
           selectedChannel: [],

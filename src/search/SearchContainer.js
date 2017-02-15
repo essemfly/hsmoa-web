@@ -4,7 +4,7 @@ import SearchComponent from './SearchComponent'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    searchKeyword: state.headerReducer.keyword,
+    searchKeyword: state.searchReducer.keyword,
     filter: state.searchReducer.filter,
     totalProductsCount: state.searchReducer.totalProductsCount,
     categories: state.searchReducer.categories,

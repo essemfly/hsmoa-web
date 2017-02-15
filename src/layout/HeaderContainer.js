@@ -5,14 +5,14 @@ import HeaderComponent from './HeaderComponent'
 const mapStateToProps = (state, ownProps) => {
   return {
     route: state.routing.locationBeforeTransitions.pathname,
-    keyword: state.headerReducer.searchKeyword,
+    keyword: state.headerReducer.keyword,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSearchClick: () => {
-      dispatch(searchProducts())
+    onSearchClick: (keyword) => {
+      dispatch(searchProducts(keyword))
     },
     onChangeKeyword: (keyword) => {
       dispatch(changeKeyword(keyword))

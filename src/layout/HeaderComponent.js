@@ -55,7 +55,8 @@ const searchBoxStyle = {
   paddingLeft: '50px',
 }
 
-const HeaderComponent = ({ route, keyword, onSearchClick, onChangeKeyword }) => (
+const HeaderComponent = ({ route, keyword, onChangeKeyword, onSearchClick }) => {
+  return (
     <div style={headerLayoutStyle}>
       <div style={headerStyle}>
         <div style={logoDivStyle}>
@@ -68,12 +69,16 @@ const HeaderComponent = ({ route, keyword, onSearchClick, onChangeKeyword }) => 
           <span className={route === '/schedule' ? 'active' : ''} style={navItemStyle}><Link to="/schedule">편성표</Link></span>
           <span className={route === '/top' ? 'active' : ''} style={navItemStyle}><Link to="/top">TOP100</Link></span>
         </div>
-        <div style={searchBoxStyle}>
-          <SearchComponent keyword={keyword} onChangeKeyword={onChangeKeyword} onSearchClick={onSearchClick} />
+        <div style={searchBoxStyle}>       
+          <SearchComponent 
+            onChangeKeyword={onChangeKeyword}
+            onSearchClick={() => {
+              onSearchClick(keyword)
+            }} />
         </div>
       </div>
     </div>
-)
+)}
 
 HeaderComponent.propTypes = {
   keyword: PropTypes.string,

@@ -9,14 +9,6 @@ const productInfoBoxStyle = {
   width: 'inherit',
 }
 
-const productImageStyle = {
-  width: '300px',
-  height: '300px',
-  display: 'table-cell',
-  position: 'relative',
-  marginRight: '30px',
-}
-
 const productInfoStyle = {
   display: 'table-cell',
   position: 'relative',
