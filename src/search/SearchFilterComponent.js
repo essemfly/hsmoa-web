@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react'
 
-import ScheduleDateComponent from './ScheduleDateComponent'
-
 const filterNavStyle = {
   position: 'fixed',
   width: 'inherit',
@@ -25,9 +23,12 @@ const checkboxStyle = {
   color: '#8d8d8d',
 }
 
-const ScheduleFilterComponent = ({ isOpenCalendar, filter, onClickCategory, onClickChannel, onClickDay, changeDate }) => {
-  const categories = [ '생활·주방', '가전·디지털', '화장품·미용', '패션·잡화', '유아·아동', '여행·레저', '식품·건강', '보험']
-  const channels = {
+const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, onClickChannel }) => {
+  if (categories.length < 1) {
+    return <div></div>
+  }
+
+  const channelMappers = {
     'nsmall': 'NS홈쇼핑',
     'gsshop': 'GSSHOP',
     'hmall': '현대홈쇼핑',
@@ -50,20 +51,16 @@ const ScheduleFilterComponent = ({ isOpenCalendar, filter, onClickCategory, onCl
     'auction': '옥션',
     'gmarket': 'G마켓'
   }
-  
+
   return (
     <div style={filterNavStyle}>
-      <div style={filterSectionStyle}>
-        <h4 style={filterHeaderStyle}>방송 날짜</h4>
-          <ScheduleDateComponent selectedDate={filter.date} changeDate={changeDate} />
-      </div>
       <div style={filterSectionStyle}>
         <h4 style={filterHeaderStyle}>카테고리</h4>
         <div>
           { categories.map((category, index) => (
               <div style={checkboxStyle} key={index}>
                 <input type="checkbox" onChange={(evt) => onClickCategory(category, evt.target.checked)}/>
-                <span> {category} </span>
+                <span> {category.ncate3} </span>
               </div>
             ))
           }
@@ -72,10 +69,10 @@ const ScheduleFilterComponent = ({ isOpenCalendar, filter, onClickCategory, onCl
       <div style={filterSectionStyle}>
         <h4 style={filterHeaderStyle}>쇼핑사</h4>
         <div>
-          { Object.keys(channels).map((channel, index) => (
+          { channels.map((channel, index) => (
               <div style={checkboxStyle} key={index}>
                 <input type="checkbox" onChange={(evt) => onClickChannel(channel, evt.target.checked)}/>
-                <span> {channels[channel]}</span>
+                <span> {channelMappers[channel.key]}</span>
               </div>
             ))
           }
@@ -85,11 +82,11 @@ const ScheduleFilterComponent = ({ isOpenCalendar, filter, onClickCategory, onCl
   );
 }
 
-ScheduleFilterComponent.propTypes = {
+SearchFilterComponent.propTypes = {
   filter: PropTypes.object,
   onClickCategory: PropTypes.func,
   onClickChannels: PropTypes.func,
   onClickDay: PropTypes.func,
 }
 
-export default ScheduleFilterComponent;
+export default SearchFilterComponent;

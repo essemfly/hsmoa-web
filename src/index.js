@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import { HomeContainer } from './home';
 import { ProductContainer } from './product';
+import { SearchContainer } from './search';
 import { Top100Container } from './top100';
 import { ScheduleContainer } from './schedule';
 import { rootStore } from './rootReducer';
@@ -20,6 +21,7 @@ ReactDOM.render((
         <Route path="top" component={Top100Container}/>
         <Route path="schedule" component={ScheduleContainer} />
         <Route path="i/:entryId" component={ProductContainer} />
+        <Route path="search/:keyword" component={SearchContainer} />
       </Route>
     </Router>
   </Provider>

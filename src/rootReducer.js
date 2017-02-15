@@ -6,6 +6,7 @@ import { scheduleReducer } from './schedule/reducer';
 import { headerReducer } from './layout/reducer';
 import { top100Reducer } from './top100/reducer';
 import { routerReducer } from 'react-router-redux';
+import { searchReducer } from './search/reducer';
 
 import createSagaMiddleware from 'redux-saga'
 import { rootSaga } from './rootSaga';
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   scheduleReducer,
   headerReducer,
   top100Reducer,
+  searchReducer,
   routing: routerReducer,
 });
 

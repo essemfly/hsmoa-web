@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { searchProducts, changeKeyword } from './actions'
 import HeaderComponent from './HeaderComponent'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     route: state.routing.locationBeforeTransitions.pathname,
     keyword: state.headerReducer.searchKeyword,

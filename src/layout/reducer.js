@@ -7,16 +7,10 @@ const initialState = {
 export const headerReducer = (state= initialState, action) => {
   switch (action.type) {
     case SEARCH_PRODUCTS:
-      // state.keyword 를 redux-thunk 이용해서 검색한다!
-      return {
-        ...state
-      }
+      return { ...state }
     case CHANGE_KEYWORD:
-      return {
-        ...state,
-        keyword: action.keyword
-      }
+      return { ...state, keyword: action.keyword }
     default:
-      return state
+      return { ...state }
   }
 }
