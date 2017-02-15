@@ -27,7 +27,21 @@ const resultInfoStyle = {
   fontSize: '19px',
   lineHeight: '23px',
   textAlign: 'initial',
-  margin: '30px 20px',
+  margin: '30px 20px 10px 20px',
+}
+
+const relatedTextStyle = {
+  fontSize: '12px',
+  color: '#666666',
+  paddingRight: '26px',
+}
+
+const relatedTextDivStyle = {
+  margin: '0 0 32px 20px',
+  height: '15px',
+  overflow: 'hidden',
+  textAlign: 'initial',
+  cursor: 'pointer',
 }
 
 class SearchComponent extends Component {
@@ -52,6 +66,15 @@ class SearchComponent extends Component {
           <div style={resultInfoStyle}>
             {`"${this.props.searchKeyword}"에 대한 ${this.props.totalProductsCount}개의 상품이 있습니다.`}
           </div>
+          <div style={relatedTextDivStyle}>
+            {
+              this.props.relatedTexts.count > 0 ? 
+                this.props.relatedTexts.data.map((text, index) => 
+                <span key={index} style={relatedTextStyle} onClick={() => this.props.getSearchResult(text.query)}>{`#${text.query}`}</span>
+                )
+              : ''
+            } 
+          </div>
           <SearchListComponent
             products={this.props.products}
             />
@@ -64,6 +87,11 @@ class SearchComponent extends Component {
 SearchComponent.propTypes = {
   searchKeyword: PropTypes.string,
   getSearchResult: PropTypes.func,
+  categories: PropTypes.array,
+  channels: PropTypes.array,
+  totalProductsCount: PropTypes.number,
+  filter: PropTypes.object,
+  relatedTexts: PropTypes.object,
 }
 
 export default SearchComponent;

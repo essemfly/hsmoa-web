@@ -17,9 +17,13 @@ const initialState = {
   categories: [],
   channels: [],
   products: [],
+  relatedTexts: {
+    count: 0,
+    data: [],
+  },
 }
 
-export const searchReducer = (state= initialState, action) => {
+export const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_KEWORD_SUCCEEDED:
       return { 
@@ -36,7 +40,8 @@ export const searchReducer = (state= initialState, action) => {
         totalProductsCount: action.result.count,
         categories: action.result.filter_category,
         channels: action.result.site_aggs,
-        products: action.result.data
+        products: action.result.data,
+        relatedTexts: action.relatedTexts,
       }
     case SEARCH_KEWORD_FAILED:
       return { ...state }

@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     categories: state.searchReducer.categories,
     channels: state.searchReducer.channels,
     products: state.searchReducer.products,
+    relatedTexts: state.searchReducer.relatedTexts,
   }
 }
 

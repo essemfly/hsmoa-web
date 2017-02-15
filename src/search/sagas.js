@@ -25,11 +25,24 @@ const getSearchResult = (keyword) => {
         })
 }
 
+const getRelevantText = (keyword) => {
+    return axios.get(`http://rpc.hsmoa.com/search/relatequery`, {
+        params: {
+            query: keyword
+        }})
+        .then(response => {
+            return response.data.result;
+        })
+}
 function* searchKeyword(action) {
     try {
-        const data = yield call(getSearchResult, action.keyword)
+        const [products, relatedTexts] = yield [
+            call(getSearchResult, action.keyword),
+            call(getRelevantText, action.keyword)
+        ]
+
         yield put({
-            type: SEARCH_KEWORD_SUCCEEDED, result: data, keyword: action.keyword
+            type: SEARCH_KEWORD_SUCCEEDED, result: products, relatedTexts: relatedTexts, keyword: action.keyword
         })
         yield browserHistory.push(`/search/${action.keyword}`)
         
