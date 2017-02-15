@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import { Link } from 'react-router'
 
 const sectionStyle = { 
   marginTop: '10px',
@@ -51,7 +50,7 @@ const SearchListComponent = ({ products }) => {
           { products.map((product, index) => 
             <li key={index} style={productBoxStyle}>
               <div style={{border: '1px solid #e6e6e6', height: '380px',}}>
-                <Link to={`/i/${product.id}`}>
+                <a target='_blank' href={product.url}>
                   <img style={productImageStyle} alt='img' src={product.img}/>
                   <div style={{paddingLeft: '10px'}}>
                     <div>
@@ -60,7 +59,7 @@ const SearchListComponent = ({ products }) => {
                     <div>{product.name}</div>
                     <div style={priceTextStyle}>{product.price} 원</div>
                   </div>
-                </Link>
+                </a>
               </div>
             </li>
             )}
