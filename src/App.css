@@ -44,7 +44,11 @@ a {
 }
 
 .slick-dots {
-    position: absolute;
-    display: block;
-    top: 265px;
+  position: absolute;
+  display: block;
+  top: 265px;
+}
+
+.order-active {
+  color: #33be9f;
 }

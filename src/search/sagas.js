@@ -58,14 +58,14 @@ export function* watchSearch() {
 const refreshSearchResult = (filter) => {
     return axios.get(`http://rpc.hsmoa.com/search/tvshopSearch`, {
         params: {
-            page: 1,
+            page: filter.page,
             num: 30,
             is_web:1,
             source: 'meta',
             query: filter.keyword,
-            order: '',
-            price_min: '',
-            price_max: '',
+            order: filter.order,
+            price_min: filter.priceRange.start,
+            price_max: filter.priceRange.end,
             ncate1: filter.selectedCategory.ncate1,
             ncate2: filter.selectedCategory.ncate2,
             ncate3: filter.selectedCategory.ncate3,

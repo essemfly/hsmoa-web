@@ -7,6 +7,7 @@ import {
 
 const initialState = {
   filter: {
+    page: 1,
     keyword: '',
     selectedCategory: {},
     selectedChannel: [],
@@ -14,6 +15,7 @@ const initialState = {
       start: 0,
       end: 999999,
     },
+    order: '',
   },
   totalProductsCount: 0,
   categories: [],
@@ -31,13 +33,15 @@ export const searchReducer = (state = initialState, action) => {
       return { 
         ...state,
         filter: {
+          page: 1,
           keyword: action.keyword,
           selectedCategory: {},
           selectedChannels: [],
           priceRange: {
             start: 0,
             end: 999999,
-          }
+          },
+          order: ''
         },
         totalProductsCount: action.result.count,
         categories: action.result.filter_category,

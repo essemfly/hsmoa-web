@@ -59,7 +59,7 @@ const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, 
         <div>
           { categories.map((category, index) => (
               <div style={checkboxStyle} key={index}>
-                <input type="checkbox" onChange={(evt) => onClickCategory(filter, category, evt.target.checked)}/>
+                <input type="radio" name="category" onChange={(evt) => onClickCategory(filter, category, evt.target.checked)}/>
                 <span> {category.ncate3} </span>
               </div>
             ))

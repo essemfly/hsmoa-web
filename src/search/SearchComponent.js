@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import SearchFilterComponent from './SearchFilterComponent'
 import SearchListComponent from './SearchListComponent'
+import SearchHeaderFilterComponent from './SearchHeaderFilterComponent'
 
 const baseStyle = {
   width: '100%',
@@ -24,6 +25,7 @@ const productListStyle = {
 }
 
 const resultInfoStyle = {
+  fontWeight: 'bold',
   fontSize: '19px',
   lineHeight: '23px',
   textAlign: 'initial',
@@ -78,9 +80,12 @@ class SearchComponent extends Component {
               : ''
             } 
           </div>
-          <SearchListComponent
-            products={this.props.products}
+          <SearchHeaderFilterComponent
+            filter={this.props.filter}
+            onClickListOrder={this.props.onClickListOrder}
+            onClickPriceRange={this.props.onClickPriceRange}
             />
+          <SearchListComponent products={this.props.products} />
         </div>
       </div>
     );
@@ -98,6 +103,8 @@ SearchComponent.propTypes = {
   onClickLiveStatus: PropTypes.func,
   onClickCategory: PropTypes.func,
   onClickChannel: PropTypes.func,
+  onClickListOrder: PropTypes.func,
+  onClickPriceRange: PropTypes.func,
 }
 
 export default SearchComponent;

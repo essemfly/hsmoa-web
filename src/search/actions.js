@@ -21,7 +21,7 @@ export const filterCategoryChanged = (filter, category, val) => {
     if (val) {
         newFilter = { ...filter, selectedCategory: category }
     } else {
-        newFilter = { ...filter, selectedCategory: {}}
+        newFilter = { ...filter, selectedCategory: {} }
     }
     return (
         { type: FILTER_CHANGE_REQUESTED, filter: newFilter, }
@@ -31,16 +31,37 @@ export const filterCategoryChanged = (filter, category, val) => {
 export const filterChannelChanged = (filter, channel, val) => {
     let newFilter = {}
     if (val) {
-        newFilter = { ...filter, selectedChannels: filter.selectedChannels.concat(channel.key)}
+        newFilter = { ...filter, selectedChannels: filter.selectedChannels.concat(channel.key) }
     } else {
-        for (let i=0; i<filter.selectedChannels.length; i++) {
+        for (let i = 0; i < filter.selectedChannels.length; i++) {
             if (filter.selectedChannels[i] === channel.key) {
                 newFilter = { ...filter }
-                newFilter.selectedChannels.splice(i,1)
+                newFilter.selectedChannels.splice(i, 1)
             }
         }
     }
     return (
         { type: FILTER_CHANGE_REQUESTED, filter: newFilter, }
     )
+}
+
+export const filterOrderChanged = (filter, type) => {
+    let newFilter = {}
+    switch (type) {
+        case '인기순':
+            newFilter = { ...filter, order: '' }
+            return ({ type: FILTER_CHANGE_REQUESTED, filter: newFilter,})
+        case '낮은가격순':
+            newFilter = { ...filter, order: 'price asc' }
+            return ({ type: FILTER_CHANGE_REQUESTED, filter: newFilter,})
+        case '높은가격순':
+            newFilter = { ...filter, order: 'price desc' }
+            return ({ type: FILTER_CHANGE_REQUESTED, filter: newFilter,})
+        default:
+            return ({ type: FILTER_CHANGE_REQUESTED, filter: newFilter,})
+    }
+}
+
+export const filterPriceRangeChanged = (filter) => {
+    return ({ type: FILTER_CHANGE_REQUESTED, filter: filter,})
 }

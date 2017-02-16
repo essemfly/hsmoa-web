@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react'
+import starOff from './images/star-off@2x.png'
+import starOn from './images/star-on@2x.png'
 
 const sectionStyle = { 
   marginTop: '10px',
@@ -42,7 +44,7 @@ const SearchListComponent = ({ products }) => {
   if (products.length < 1) {
     return <div></div>
   }
-
+  
   return (
     <div style={sectionStyle}>
       <div style={{display: 'table', width: '810px',}}>
@@ -57,6 +59,21 @@ const SearchListComponent = ({ products }) => {
                       <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
                     </div>
                     <div>{product.name}</div>
+                    { product.review_rate > 0 ?
+                      <span>
+                        {
+                          [...Array(5)].map((x, i) => 
+                          i < Math.round(product.review_rate) ?
+                          <img key={i} style={{height: '15px',}} src={starOn} alt={`star${i}`} />:
+                          <img key={i} style={{height: '15px',}} src={starOff} alt={`star${i}`} />
+                        )}
+                        <span></span>
+                      </span> : ''
+                    }
+                    {
+                      product.review_num > 0 ?
+                      <span style={{ paddingLeft: '5px', fontSize: '12px', color: '#8d8d8d', }}> 리뷰 {product.review_num}</span> : ''
+                    }
                     <div style={priceTextStyle}>{product.price} 원</div>
                   </div>
                 </a>

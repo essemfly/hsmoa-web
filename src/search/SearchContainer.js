@@ -4,6 +4,8 @@ import {
   filterLiveStatusChanged,
   filterCategoryChanged,
   filterChannelChanged,
+  filterOrderChanged,
+  filterPriceRangeChanged
 } from './actions'
 import SearchComponent from './SearchComponent'
 
@@ -33,6 +35,12 @@ const mapDispatchToProps = (dispatch) => {
     onClickChannel: (filter, channel, val) => {
       dispatch(filterChannelChanged(filter, channel, val))
     },
+    onClickListOrder: (filter, type) => {
+      dispatch(filterOrderChanged(filter, type))
+    },
+    onClickPriceRange: (filter) => {
+      dispatch(filterPriceRangeChanged(filter))
+    }
   }
 }
 
