@@ -69,3 +69,7 @@ export const filterOrderChanged = (filter, type) => {
 export const filterPriceRangeChanged = (filter) => {
     return ({ type: FILTER_CHANGE_REQUESTED, filter: filter,})
 }
+
+export const filterPageChanged = (filter, page) => {
+    return ({ type: FILTER_CHANGE_REQUESTED, filter: {...filter, page: page},})
+}

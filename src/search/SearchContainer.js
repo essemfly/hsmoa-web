@@ -5,7 +5,8 @@ import {
   filterCategoryChanged,
   filterChannelChanged,
   filterOrderChanged,
-  filterPriceRangeChanged
+  filterPriceRangeChanged,
+  filterPageChanged
 } from './actions'
 import SearchComponent from './SearchComponent'
 
@@ -40,6 +41,10 @@ const mapDispatchToProps = (dispatch) => {
     },
     onClickPriceRange: (filter) => {
       dispatch(filterPriceRangeChanged(filter))
+    },
+    onClickPage: (filter, page) => {
+      window.scroll(0,0)
+      dispatch(filterPageChanged(filter, page))
     }
   }
 }
