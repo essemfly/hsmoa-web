@@ -17,7 +17,7 @@ class ProductComponent extends Component {
 
     this.createDetailMarkup = this.createDetailMarkup.bind(this);
   }
-    
+
   createDetailMarkup(rawHtml) {
     return { __html: rawHtml }
   }
