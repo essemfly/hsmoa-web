@@ -1,4 +1,5 @@
 import React, { PropTypes, } from 'react'
+import calendarImage from './images/calendar@2x.png'
 
 const dateBoxStyle = {
   width: '100%',
@@ -6,6 +7,7 @@ const dateBoxStyle = {
   borderRadius: '3px',
   border: '1px solid #cccccc',
   margin: '12px 0',
+  cursor: 'pointer',
 }
 
 const dateTextStyle = {
@@ -24,6 +26,9 @@ const ScheduleDateComponent = ({selectedDate, changeDate}) => {
       <span style={dateTextStyle}>
         {`${selectedDate.getFullYear()}년 ${selectedDate.getMonth()+1}월 ${selectedDate.getDate()}일`}  
       </span>
+      <div style={{float: 'right',}}>
+        <img style={{ height: '20px', margin: '9px'}} src={calendarImage} alt='cal' />
+      </div>
     </div>
   )
 } 

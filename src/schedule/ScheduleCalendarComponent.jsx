@@ -2,12 +2,15 @@ import React, { PropTypes } from 'react'
 
 const calendarTableStyle = {
   width: '100%',
-  marginTop: '8px',
+  margin: '10px',
+  display: 'inline-block',
 }
 
 const dateTextStyle = {
   fontSize: '13px',
-  padding: '4.9px 5.7px',
+  height: '27px',
+  width: '37px',
+  lineHeight: '27px',
   textAlign: 'center',
   cursor: 'pointer',
 }
@@ -17,7 +20,7 @@ const todayStyle = {
   height: '30px',
   lineHeight: '26px',
   border: '1px solid #32be9f',
-  borderRadius:'15px',
+  borderRadius: '15px',
 }
 
 const selectedDayStyle = {
@@ -27,6 +30,8 @@ const selectedDayStyle = {
   lineHeight: '28px',
   color: 'white',
   borderRadius: '15px',
+  marginRight: 'auto', 
+  marginLeft: 'auto',
 }
 
 const saturdayStyle = {
@@ -51,15 +56,16 @@ const ScheduleCalendarComponent = ({selectedDate, onClickDay}) => {
   const startDay = new Date()
   const today = startDay.getDate()
   const userSelectedDate = new Date(selectedDate)
+  const days = ['일', '월', '화', '수', '목', '금', '토']
 
-  let dayDifference = today-startDay.getDay() -7
+  let dayDifference = today - startDay.getDay() - 7
   startDay.setDate(dayDifference)
   dayDifference -= today
 
   const dateList = []
   let dateListJSX = []
 
-  for (let i=0; i<daysToShown; i++) {
+  for (let i = 0; i < daysToShown; i++) {
     let tempDate = {
       date: startDay.getDate(),
       full: startDay.toISOString(),
@@ -67,16 +73,16 @@ const ScheduleCalendarComponent = ({selectedDate, onClickDay}) => {
     }
 
     dateListJSX.push(
-      <td style={dateTextStyle} key={i} onClick={(evt) => 
-      onClickDay(tempDate.full)}>
+      <td style={dateTextStyle} key={i} onClick={(evt) =>
+        onClickDay(tempDate.full)}>
         <div style={Object.assign(
+          tempDate.date === userSelectedDate.getDate() ? selectedDayStyle : {},
           tempDate.date === today ? todayStyle : {},
-          tempDate.date === userSelectedDate.getDate() ? selectedDayStyle:{},
-          tempDate.day === 0 ? sundayStyle:{},
-          tempDate.day === 6 ? saturdayStyle:{},
-          Math.abs(dayDifference) > 7 ? dimStyle:{},
-          )
-          }>
+          tempDate.day === 0 ? sundayStyle : {},
+          tempDate.day === 6 ? saturdayStyle : {},
+          Math.abs(dayDifference) > 7 ? dimStyle : {},
+        )
+        }>
           {tempDate.date}
         </div>
       </td>
@@ -87,23 +93,20 @@ const ScheduleCalendarComponent = ({selectedDate, onClickDay}) => {
       )
       dateListJSX = []
     }
-  
+
     startDay.setDate(startDay.getDate() + 1)
     dayDifference += 1
   }
-  
+
 
   return (
     <table style={calendarTableStyle}>
       <tbody>
         <tr>
-          <td style={dateTextStyle}>일</td>
-          <td style={dateTextStyle}>월</td>
-          <td style={dateTextStyle}>화</td>
-          <td style={dateTextStyle}>수</td>
-          <td style={dateTextStyle}>목</td>
-          <td style={dateTextStyle}>금</td>
-          <td style={dateTextStyle}>토</td>
+          { days.map((day, index)=> (
+            <td key={index} style={dateTextStyle}><b>{day}</b></td>
+           ))
+          }
         </tr>
         {dateList}
       </tbody>
