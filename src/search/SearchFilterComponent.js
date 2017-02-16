@@ -1,4 +1,10 @@
 import React, { PropTypes } from 'react'
+import search_tab_1 from './images/search-tab-1@2x.png'
+import search_tab_2 from './images/search-tab-2@2x.png'
+import search_tab_3 from './images/search-tab-3@2x.png'
+import search_tab_1_on from './images/search-tab-1-on@2x.png'
+import search_tab_2_on from './images/search-tab-2-on@2x.png'
+import search_tab_3_on from './images/search-tab-3-on@2x.png'
 
 const filterNavStyle = {
   position: 'fixed',
@@ -23,7 +29,14 @@ const checkboxStyle = {
   color: '#8d8d8d',
 }
 
-const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, onClickChannel }) => {
+const categoryImageStyle = {
+  height: '40px',
+  cursor: 'pointer',
+  verticalAlign: 'top',
+}
+
+
+const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, onClickChannel, onClickLiveStatus }) => {
   if (categories.length < 1) {
     return <div></div>
   }
@@ -54,6 +67,25 @@ const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, 
 
   return (
     <div style={filterNavStyle}>
+      <div style={filterSectionStyle}>
+        <div style={{paddingTop: '10px',}}>
+          {
+            filter.source === '' ?
+            <img style={categoryImageStyle} src={search_tab_1_on} alt='tab1' onClick={() => onClickLiveStatus(filter)}/> :
+            <img style={categoryImageStyle} src={search_tab_1} alt='tab1' onClick={() => onClickLiveStatus(filter)}/>
+          }
+          {
+            filter.source === 'future' ?
+            <img style={categoryImageStyle} src={search_tab_2_on} alt='tab2' onClick={() => onClickLiveStatus(filter, 'future')}/> :
+            <img style={categoryImageStyle} src={search_tab_2} alt='tab2' onClick={() => onClickLiveStatus(filter, 'future')}/>
+          }
+          {
+            filter.source === 'past' ?
+            <img style={categoryImageStyle} src={search_tab_3_on} alt='tab3' onClick={() => onClickLiveStatus(filter, 'past')}/> :
+            <img style={categoryImageStyle} src={search_tab_3} alt='tab3' onClick={() => onClickLiveStatus(filter, 'past')}/>
+          }
+        </div>
+      </div>
       <div style={filterSectionStyle}>
         <h4 style={filterHeaderStyle}>카테고리</h4>
         <div>

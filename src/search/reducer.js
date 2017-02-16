@@ -16,6 +16,7 @@ const initialState = {
       end: 999999,
     },
     order: '',
+    source: ''
   },
   totalProductsCount: 0,
   categories: [],
@@ -41,7 +42,8 @@ export const searchReducer = (state = initialState, action) => {
             start: 0,
             end: 999999,
           },
-          order: ''
+          order: '',
+          source: '',
         },
         totalProductsCount: action.result.count,
         categories: action.result.filter_category,

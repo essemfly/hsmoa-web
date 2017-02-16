@@ -26,8 +26,8 @@ const mapDispatchToProps = (dispatch) => {
     getSearchResult: (keyword) => {
       dispatch(searchKeywordRequested(keyword))
     },
-    onClickLiveStatus: () => {
-      dispatch(filterLiveStatusChanged())
+    onClickLiveStatus: (filter, source) => {
+      dispatch(filterLiveStatusChanged(filter, source))
     },
     onClickCategory: (filter, category, val) => {
       dispatch(filterCategoryChanged(filter, category, val))

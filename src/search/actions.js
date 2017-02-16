@@ -14,7 +14,11 @@ export const REFRESH_SEARCH_FAILED = 'REFRESH_SEARCH_FAILED'
 export const searchKeywordRequested = (keyword) => ({ type: SEARCH_KEWORD_REQUESTED, keyword: keyword })
 
 
-export const filterLiveStatusChanged = () => ({ type: FILTER_CHANGE_REQUESTED })
+export const filterLiveStatusChanged = (filter, source = '') => {
+    let newFilter = {}
+    newFilter = {...filter, source: source}
+    return { type: FILTER_CHANGE_REQUESTED, filter: newFilter, }
+}
 
 export const filterCategoryChanged = (filter, category, val) => {
     let newFilter = {}

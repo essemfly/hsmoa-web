@@ -61,7 +61,7 @@ const refreshSearchResult = (filter) => {
             page: filter.page,
             num: 30,
             is_web:1,
-            source: 'meta',
+            source: filter.source,
             query: filter.keyword,
             order: filter.order,
             price_min: filter.priceRange.start,
