@@ -29,7 +29,7 @@ const resultInfoStyle = {
   fontSize: '19px',
   lineHeight: '23px',
   textAlign: 'initial',
-  margin: '30px 20px 10px 20px',
+  margin: '30px 20px 20px 20px',
 }
 
 const relatedTextStyle = {
@@ -39,7 +39,7 @@ const relatedTextStyle = {
 }
 
 const relatedTextDivStyle = {
-  margin: '0 0 32px 20px',
+  margin: '0 0 22px 20px',
   height: '15px',
   overflow: 'hidden',
   textAlign: 'initial',
@@ -65,31 +65,32 @@ class SearchComponent extends Component {
             onClickLiveStatus={this.props.onClickLiveStatus}
             onClickCategory={this.props.onClickCategory}
             onClickChannel={this.props.onClickChannel}
-            />
+          />
         </div>
         <div style={productListStyle}>
           <div style={resultInfoStyle}>
             {`"${this.props.filter.keyword}"에 대한 ${this.props.totalProductsCount}개의 상품이 있습니다.`}
           </div>
-          <div style={relatedTextDivStyle}>
-            {
-              this.props.relatedTexts.count > 0 ? 
-                this.props.relatedTexts.data.map((text, index) => 
-                <span key={index} style={relatedTextStyle} onClick={() => this.props.getSearchResult(text.query)}>{`#${text.query}`}</span>
-                )
-              : ''
-            } 
-          </div>
+          {
+            this.props.relatedTexts.count > 0 ?
+              <div style={relatedTextDivStyle}>
+                {
+                  this.props.relatedTexts.data.map((text, index) =>
+                    <span key={index} style={relatedTextStyle} onClick={() => this.props.getSearchResult(text.query)}>{`#${text.query}`}</span>
+                  )
+                }
+              </div> : ''
+          }
           <SearchHeaderFilterComponent
             filter={this.props.filter}
             onClickListOrder={this.props.onClickListOrder}
             onClickPriceRange={this.props.onClickPriceRange}
-            />
+          />
           <SearchListComponent products={this.props.products} />
         </div>
       </div>
     );
-  } 
+  }
 }
 
 SearchComponent.propTypes = {
