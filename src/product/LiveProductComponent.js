@@ -79,7 +79,9 @@ const LiveProductComponent = ({ product }) => {
             <div style={discountTextStyle}> {product.org_price}원</div>
             <div style={priceTextStyle}>{product.price} 원</div>
           </div>
-          <div style={buyButtonStyle}>구매하기</div>
+          <a target='_blank' href={product.url}>
+            <div style={buyButtonStyle}>구매하기</div>
+          </a>
         </div>
       </div>
     </div>
