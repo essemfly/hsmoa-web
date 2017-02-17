@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react'
-import search_icon from './search_icon.png'
+import search_icon from './images/search_icon.png'
 
 const formStyle = {
     textAlign: "right",
