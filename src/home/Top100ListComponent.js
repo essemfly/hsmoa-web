@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
+import { formatMoney } from '../common'
 
 const sectionStyle = { 
   marginTop: '25px',
@@ -45,31 +46,17 @@ const logoStyle = {
   verticalAlign: 'middle',
 }
 
-const timeStyle = {
-  float: 'right',
-  color: '#aaa',
-  fontSize: '12px'
-}
-
-const nameStyle = {
+const productPriceStyle = {
+  color: '#ea1b27',
   fontSize: '16px',
-  height: '2.5em',
-  lineHeight: '1.3em',
-  overflow:'hidden',
-  margin: '3px 0 9px'
-
-}
-
-const priceStyle = {
-  fontSize: '18px',
-  fontWeight:'bold'
+  fontWeight: 'bold',
 }
 
 const Top100ListComponent = ({title, expand, products}) => (
     <div style={sectionStyle}>
       <div style={sectionHeaderStyle}>
         <span> {title} </span>
-        <span style={{float: 'right', fontSize: '14px', color: '#8D8D8D',}}> <Link to={expand.link}> {expand.title} 〉</Link></span>
+        <span style={{float: 'right', fontSize: '14px', color: '#8D8D8D',}}> <Link to={expand.link}> {expand.title} ></Link></span>
       </div>
       <div style={{display: 'table', width: '1000px',}}>
         <ul style={productListStyle}>
@@ -77,13 +64,17 @@ const Top100ListComponent = ({title, expand, products}) => (
             <li key={index} style={index < 8 ? productBoxStyle : hiddenStyle }>
               <Link to={`/i/${product.id}`}>
                 <img style={productImageStyle} alt='img' src={product.img}/>
-                <div style={{padding: '3px 10px'}}>
+                <div style={{paddingLeft: '10px'}}>
                   <div>
                     <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
-                    <span style={timeStyle} >{product.start_time} ~ {product.end_time}</span>
+                    <span style={{ color: '#8d8d8d', lineHeight: '25px', marginRight: '10px', fontSize: '12px', float: 'right',}}>{product.start_time} ~ {product.end_time}</span>
                   </div>
-                  <div style={nameStyle} >{product.name}</div>
-                  <div style={priceStyle} >{product.price}<span style={priceStyle} >원</span></div>
+                  <div style={{fontSize: '15px', lineHeight: '22px', height: '44px', overflow: 'hidden',}}>{product.name}</div>
+                  <div style={{position: 'absolute', bottom: '6px',}}>
+                    { product.price > 0 ?
+                      <div style={productPriceStyle}>{formatMoney(product.price)} 원</div> : <div style={{fontSize: '14px', color: '#888888', fontWeight: 'bold',}}> 상담/렌탈 </div>
+                    }
+                  </div>
                 </div>
               </Link>
             </li>

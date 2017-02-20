@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
+import { formatMoney } from '../common'
 
 const labelStyle = {
   width: '160px',
@@ -94,10 +95,13 @@ const BeforeLiveListComponent = ({ schedules }) => {
               <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + schedule.genre2 + '.png'}/> 
               <span style={timeStyle}> |   현재방송중 </span>
               <div style={titleStyle}> {schedule.name} </div>
-              <div style={priceDivStyle}> 
-                <div style={discountTextStyle}> {schedule.org_price}원</div>
-                <div style={priceTextStyle}> {schedule.price}<span style={{fontSize: '14px'}}>원</span></div> 
-              </div>
+              { schedule.price > 0 ?
+                <div style={priceDivStyle}> 
+                  <div style={discountTextStyle}> {formatMoney(schedule.org_price)}원</div>
+                  <div style={priceTextStyle}> {formatMoney(schedule.price)}<span style={{fontSize: '14px'}}>원</span></div> 
+                </div> :
+                <div style={priceDivStyle}><span style={{fontSize: '15px', color: '#888888', fontWeight: 'bold',}}> 상담/렌탈 </span></div>
+              }
             </div>
           </Link>
         </div>  

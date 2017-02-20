@@ -1,7 +1,7 @@
 import React from 'react';
-import footer_appstore from '../../public/footer_appstore.png';
-import footer_googleplay from '../../public/footer_googleplay.png';
-import footer_background from '../../public/footer_background.png';
+import footer_appstore from './images/footer_appstore.png';
+import footer_googleplay from './images/footer_googleplay.png';
+import footer_background from './images/footer_background.png';
 
 const footerStyle = {
   bottom: '0',
