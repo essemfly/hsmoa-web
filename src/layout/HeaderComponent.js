@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 
 const headerLayoutStyle = {
   width: '100%',
-  borderBottom: '1px solid #bbb',
+  boxShadow: '0 0 3px 0 rgba(0, 0, 0, 0.25), 0 1px 0 0 rgba(0, 0, 0, 0.2)',
   position: 'fixed',
   top: 0,
   height: '80px',
@@ -12,7 +12,7 @@ const headerLayoutStyle = {
   zIndex: '9999',
 }
 
-const headerStyle = {  
+const headerStyle = {
   display: 'table',
   width: '100%',
   maxWidth: '980px',
@@ -31,7 +31,7 @@ const logoDivStyle = {
 
 const logoStyle = {
   float: 'left',
-  height: '26px',
+  height: '30px',
   lineHeight: '80px',
 }
 
@@ -69,8 +69,8 @@ const HeaderComponent = ({ route, keyword, onChangeKeyword, onSearchClick }) => 
           <span className={route === '/schedule' ? 'active' : ''} style={navItemStyle}><Link to="/schedule">편성표</Link></span>
           <span className={route === '/top' ? 'active' : ''} style={navItemStyle}><Link to="/top">TOP100</Link></span>
         </div>
-        <div style={searchBoxStyle}>       
-          <SearchComponent 
+        <div style={searchBoxStyle}>
+          <SearchComponent
             onChangeKeyword={onChangeKeyword}
             onSearchClick={() => {
               onSearchClick(keyword)

@@ -41,15 +41,35 @@ const productImageStyle = {
 }
 
 const logoStyle = {
-  height: '25px',
+  height: '20px',
   verticalAlign: 'middle',
+}
+
+const timeStyle = {
+  float: 'right',
+  color: '#aaa',
+  fontSize: '12px'
+}
+
+const nameStyle = {
+  fontSize: '16px',
+  height: '2.5em',
+  lineHeight: '1.3em',
+  overflow:'hidden',
+  margin: '3px 0 9px'
+
+}
+
+const priceStyle = {
+  fontSize: '18px',
+  fontWeight:'bold'
 }
 
 const Top100ListComponent = ({title, expand, products}) => (
     <div style={sectionStyle}>
       <div style={sectionHeaderStyle}>
         <span> {title} </span>
-        <span style={{float: 'right', fontSize: '14px', color: '#8D8D8D',}}> <Link to={expand.link}> {expand.title} ></Link></span>
+        <span style={{float: 'right', fontSize: '14px', color: '#8D8D8D',}}> <Link to={expand.link}> {expand.title} 〉</Link></span>
       </div>
       <div style={{display: 'table', width: '1000px',}}>
         <ul style={productListStyle}>
@@ -57,13 +77,13 @@ const Top100ListComponent = ({title, expand, products}) => (
             <li key={index} style={index < 8 ? productBoxStyle : hiddenStyle }>
               <Link to={`/i/${product.id}`}>
                 <img style={productImageStyle} alt='img' src={product.img}/>
-                <div style={{paddingLeft: '10px'}}>
+                <div style={{padding: '3px 10px'}}>
                   <div>
                     <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
-                    <span>{product.start_time} ~ {product.end_time}</span>
+                    <span style={timeStyle} >{product.start_time} ~ {product.end_time}</span>
                   </div>
-                  <div>{product.name}</div>
-                  <div>{product.price} 원</div>
+                  <div style={nameStyle} >{product.name}</div>
+                  <div style={priceStyle} >{product.price}<span style={priceStyle} >원</span></div>
                 </div>
               </Link>
             </li>

@@ -41,7 +41,7 @@ const productImageStyle = {
 }
 
 const logoStyle = {
-  height: '25px',
+  height: '20px',
   verticalAlign: 'middle',
 }
 
@@ -49,7 +49,7 @@ const ScheduleListComponent = ({title, expand, products}) => (
     <div style={sectionStyle}>
       <div style={sectionHeaderStyle}>
         <span> {title} </span>
-        <span style={{float: 'right', fontSize: '14px', color: '#8D8D8D',}}> <Link to={expand.link}> {expand.title} ></Link></span>
+        <span style={{float: 'right', fontSize: '14px', color: '#8D8D8D',}}> <Link to={expand.link}> {expand.title} 〉</Link></span>
       </div>
       <div style={{display: 'table', width: '1000px',}}>
         <ul style={productListStyle}>
@@ -63,7 +63,7 @@ const ScheduleListComponent = ({title, expand, products}) => (
                     <span>{product.start_time} ~ {product.end_time}</span>
                   </div>
                   <div>{product.simple_name}</div>
-                  <div>{product.price} 원</div>
+                  <div>{product.price}원</div>
                 </div>
               </Link>
             </li>
