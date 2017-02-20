@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
+import { formatMoney } from '../common'
 
 const sectionStyle = { 
   marginTop: '10px',
@@ -66,7 +67,7 @@ const Top100ListComponent = ({ products }) => (
                       <span style={{float:'right', marginRight: '10px', lineHeight: '26px',}}>{product.start_time} 방송</span>
                     </div>
                     <div>{product.name}</div>
-                    <div style={priceTextStyle}>{product.price} 원</div>
+                    <div style={priceTextStyle}>{formatMoney(product.price)} 원</div>
                   </div>
                 </Link>
               </div>

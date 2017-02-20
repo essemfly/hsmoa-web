@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
-import FlowPlayer from './FlowPlayer'
 import ScheduleListComponent from './ScheduleListComponent'
 import Top100ListComponent from './Top100ListComponent'
 import buy_button from './images/buy_button.png'
 import detail_button from './images/detail_button.png'
 import { Link } from 'react-router'
+import { formatPhone, FlowPlayer } from '../common'
 
 const baseStyle = {
   width: '100%',
@@ -88,7 +88,6 @@ const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel })
   if (channels.length < 1) {
     return <div style={baseStyle}/>
   }
-  const formatPhone = (input) => (input.length < 1 ? '' : input.slice(0,3) + '-' + input.slice(3,6) + '-' + input.slice(6,10));
 
   return (
   <div style={baseStyle}>

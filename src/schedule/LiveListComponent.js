@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
+import { formatMoney } from '../common'
 
 const labelStyle = {
   width: '160px',
@@ -95,8 +96,8 @@ const BeforeLiveListComponent = ({ schedules }) => {
               <span style={timeStyle}> |   현재방송중 </span>
               <div style={titleStyle}> {schedule.name} </div>
               <div style={priceDivStyle}> 
-                <div style={discountTextStyle}> {schedule.org_price}원</div>
-                <div style={priceTextStyle}> {schedule.price}<span style={{fontSize: '14px'}}>원</span></div> 
+                <div style={discountTextStyle}> {formatMoney(schedule.org_price)}원</div>
+                <div style={priceTextStyle}> {formatMoney(schedule.price)}<span style={{fontSize: '14px'}}>원</span></div> 
               </div>
             </div>
           </Link>

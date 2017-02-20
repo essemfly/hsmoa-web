@@ -50,6 +50,6 @@ export default class FlowPlayer extends React.Component {
     }
 
     render() {
-        return <div style={{backgroundColor: 'black',}}ref="flowplayer" />;
+        return <div style={{backgroundColor: 'black',}} ref="flowplayer" />;
     }
 }

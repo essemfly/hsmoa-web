@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
+import { formatMoney } from '../common'
 
 const labelStyle = {
   width: '160px',
@@ -153,8 +154,8 @@ class BeforeLiveListComponent extends Component {
                       <span style={timeStyle}> | {product.start_time} ~ {product.end_time} </span>
                       <div style={titleStyle}> {product.name} </div>
                       <div style={priceDivStyle}> 
-                        <div style={discountTextStyle}> {product.org_price}원</div>
-                        <div style={priceTextStyle}>{product.price}<span style={{fontSize: '14px'}}>원</span></div> 
+                        <div style={discountTextStyle}> {formatMoney(product.org_price)}원</div>
+                        <div style={priceTextStyle}>{formatMoney(product.price)}<span style={{fontSize: '14px'}}>원</span></div> 
                       </div>
                     </div>
                   </div>
@@ -170,8 +171,8 @@ class BeforeLiveListComponent extends Component {
                           <div style={subScheduleDescStyle}>
                             <div style={subTitleStyle}>{item.name}</div>
                             <div style={priceDivStyle}>
-                              <div style={subDiscountTextStyle}>{item.org_price}원 </div>
-                              <div style={subPriceTextStyle}>{item.price}<span style={{fontSize: '11px'}}>원</span> </div>
+                              <div style={subDiscountTextStyle}>{formatMoney(item.org_price)}원 </div>
+                              <div style={subPriceTextStyle}>{formatMoney(item.price)}<span style={{fontSize: '11px'}}>원</span> </div>
                             </div>
                           </div>
                         </Link>

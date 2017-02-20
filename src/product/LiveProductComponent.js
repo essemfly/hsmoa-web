@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import FlowPlayer from './FlowPlayer'
+import { formatMoney, FlowPlayer } from '../common'
 
 const productInfoBoxStyle = {
   borderBottom: '1px solid rgba(0,0,0,0.1)',
@@ -76,8 +76,8 @@ const LiveProductComponent = ({ product }) => {
           </div>
           <div style={{fontSize: '18px', lineHeight: '24px', marginBottom: '20px',}}>{product.name}</div>
           <div style={{width:'50%', display: 'inline-block'}}>
-            <div style={discountTextStyle}> {product.org_price}원</div>
-            <div style={priceTextStyle}>{product.price} 원</div>
+            <div style={discountTextStyle}> {formatMoney(product.org_price)}원</div>
+            <div style={priceTextStyle}>{formatMoney(product.price)} 원</div>
           </div>
           <a target='_blank' href={product.url}>
             <div style={buyButtonStyle}>구매하기</div>

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
+import { formatMoney } from '../common'
 
 const sectionStyle = { 
   marginTop: '25px',
@@ -63,7 +64,7 @@ const ScheduleListComponent = ({title, expand, products}) => (
                     <span>{product.start_time} ~ {product.end_time}</span>
                   </div>
                   <div>{product.simple_name}</div>
-                  <div>{product.price} 원</div>
+                  <div>{formatMoney(product.price)} 원</div>
                 </div>
               </Link>
             </li>
