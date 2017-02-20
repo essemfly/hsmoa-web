@@ -92,7 +92,7 @@ const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, 
           { categories.map((category, index) => (
               <div style={checkboxStyle} key={index}>
                 <input type="radio" name="category" onChange={(evt) => onClickCategory(filter, category, evt.target.checked)}/>
-                <span> {category.ncate3} </span>
+                <span style={{verticalAlign: 'middle',}}> {category.ncate3} </span>
               </div>
             ))
           }
@@ -103,8 +103,9 @@ const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, 
         <div>
           { channels.map((channel, index) => (
               <div style={checkboxStyle} key={index}>
-                <input type="checkbox" onChange={(evt) => onClickChannel(filter, channel, evt.target.checked)}/>
-                <span> {channelMappers[channel.key]}</span>
+                <input id={`channel${index}`} type="checkbox" onChange={(evt) => onClickChannel(filter, channel, evt.target.checked)}/>
+                <label htmlFor={`channel${index}`}></label>
+                <span style={{verticalAlign: 'middle',}}> {channelMappers[channel.key]}</span>
               </div>
             ))
           }

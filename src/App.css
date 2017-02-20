@@ -52,3 +52,56 @@ a {
 .order-active {
   color: #33be9f;
 }
+
+input[type='checkbox'] {
+  display: none;
+}
+
+input[type='checkbox'] + label {
+  width: 15px;
+	height: 15px;
+	border-radius: 3px;
+	background-color: #ffffff;
+	border: solid 1px #cccccc;
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-right: 9px;
+}
+
+input[type='checkbox']:checked + label {
+	border: solid 1px #32be9f;
+}
+
+input[type='checkbox']:checked + label:after {
+  content: '\2713';
+  font-size: 16px;
+  vertical-align: middle;
+  bottom: 5px;
+  position: relative;
+  color: #32be9f;
+}
+
+input[type='radio'] {
+  -webkit-appearance:none;
+  width:15px;
+  height:15px;
+  border:1px solid #cccccc;
+  border-radius: 20px;
+  outline:none;
+  margin-right: 9px;
+  vertical-align: middle;
+}
+
+input[type='radio']:before {
+  content:'';
+  display:block;
+  width: 9px;
+  height: 9px;
+  margin: 2px;
+  border-radius:50%;
+}
+
+input[type='radio']:checked:before {
+  background: #32be9f;
+}

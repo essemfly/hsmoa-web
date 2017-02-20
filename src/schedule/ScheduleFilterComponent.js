@@ -62,8 +62,9 @@ const ScheduleFilterComponent = ({ isOpenCalendar, filter, onClickCategory, onCl
         <div>
           { categories.map((category, index) => (
               <div style={checkboxStyle} key={index}>
-                <input type="checkbox" onChange={(evt) => onClickCategory(category, evt.target.checked)}/>
-                <span> {category} </span>
+                <input id={`category${index}`} type="checkbox" onChange={(evt) => onClickCategory(category, evt.target.checked)}/>
+                <label htmlFor={`category${index}`}></label>
+                <span style={{verticalAlign: 'middle'}}> {category} </span>
               </div>
             ))
           }
@@ -74,8 +75,9 @@ const ScheduleFilterComponent = ({ isOpenCalendar, filter, onClickCategory, onCl
         <div>
           { Object.keys(channels).map((channel, index) => (
               <div style={checkboxStyle} key={index}>
-                <input type="checkbox" onChange={(evt) => onClickChannel(channel, evt.target.checked)}/>
-                <span> {channels[channel]}</span>
+                <input id={`channel${index}`} type="checkbox" onChange={(evt) => onClickChannel(channel, evt.target.checked)}/>
+                <label htmlFor={`channel${index}`}></label>
+                <span style={{verticalAlign: 'middle'}}> {channels[channel]}</span>
               </div>
             ))
           }
