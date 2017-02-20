@@ -46,6 +46,12 @@ const logoStyle = {
   verticalAlign: 'middle',
 }
 
+const productPriceStyle = {
+  color: '#ea1b27',
+  fontSize: '16px',
+  fontWeight: 'bold',
+}
+
 const Top100ListComponent = ({title, expand, products}) => (
     <div style={sectionStyle}>
       <div style={sectionHeaderStyle}>
@@ -61,10 +67,14 @@ const Top100ListComponent = ({title, expand, products}) => (
                 <div style={{paddingLeft: '10px'}}>
                   <div>
                     <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
-                    <span>{product.start_time} ~ {product.end_time}</span>
+                    <span style={{ color: '#8d8d8d', lineHeight: '25px', marginRight: '10px', fontSize: '12px', float: 'right',}}>{product.start_time} ~ {product.end_time}</span>
                   </div>
-                  <div>{product.name}</div>
-                  <div>{formatMoney(product.price)} 원</div>
+                  <div style={{fontSize: '15px', lineHeight: '22px', height: '44px', overflow: 'hidden',}}>{product.name}</div>
+                  <div style={{position: 'absolute', bottom: '6px',}}>
+                    { product.price > 0 ?
+                      <div style={productPriceStyle}>{formatMoney(product.price)} 원</div> : <div style={{fontSize: '14px', color: '#888888', fontWeight: 'bold',}}> 상담/렌탈 </div>
+                    }
+                  </div>
                 </div>
               </Link>
             </li>

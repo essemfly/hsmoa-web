@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import starOff from './images/star-off@2x.png'
 import starOn from './images/star-on@2x.png'
+import { formatMoney } from '../common'
 
 const sectionStyle = { 
   marginTop: '10px',
@@ -51,14 +52,14 @@ const SearchListComponent = ({ products }) => {
         <ul style={productListStyle}>
           { products.map((product, index) => 
             <li key={index} style={productBoxStyle}>
-              <div style={{border: '1px solid #e6e6e6', height: '380px',}}>
+              <div style={{border: '1px solid #e6e6e6', height: '380px', position: 'relative',}}>
                 <a target='_blank' href={product.url}>
                   <img style={productImageStyle} alt='img' src={product.img}/>
                   <div style={{paddingLeft: '10px'}}>
                     <div>
                       <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
                     </div>
-                    <div>{product.name}</div>
+                    <div style={{ fontSize: '15px', lineHeight: '19px', height: '38px', overflow: 'hidden', marginBottom: '5px',}}>{product.name}</div>
                     { product.review_rate > 0 ?
                       <span>
                         {
@@ -74,7 +75,12 @@ const SearchListComponent = ({ products }) => {
                       product.review_num > 0 ?
                       <span style={{ paddingLeft: '5px', fontSize: '12px', color: '#8d8d8d', }}> 리뷰 {product.review_num}</span> : ''
                     }
-                    <div style={priceTextStyle}>{product.price} 원</div>
+                    <div style={{position: 'absolute', bottom: '9px',}}>
+                      {
+                        product.price > 0 ?
+                        <div style={priceTextStyle}>{formatMoney(product.price)} 원</div> : <div style={{fontSize: '18px', color: '#888888', fontWeight: 'bold',}}> 상담/렌탈 </div>
+                      }
+                    </div>
                   </div>
                 </a>
               </div>

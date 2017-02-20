@@ -92,8 +92,16 @@ const GeneralProductComponent = ({ product }) => {
           <span style={{fontSize: '14px', lineHeight: '17px', marginLeft: '20px', verticalAlign: 'middle',}}>{product.start_time} ~ {product.end_time} </span>
         </div>
         <div style={{fontSize: '18px', lineHeight: '24px', marginBottom: '20px',}}>{product.name}</div>
-        <div style={discountTextStyle}> {formatMoney(product.org_price)}원</div>
-        <div style={priceTextStyle}>{formatMoney(product.price)} 원</div>
+        {
+          product.price > 0 ?
+          <div>
+            <div style={discountTextStyle}> {formatMoney(product.org_price)}원</div>
+            <div style={priceTextStyle}>{formatMoney(product.price)} 원</div>
+          </div> : 
+          <div>
+            <div style={{fontSize: '24px', color: '#888888', fontWeight: 'bold',}}> 상담/렌탈 </div>
+          </div>
+        }
         <a target='_blank' href={product.url}>
           <div style={buyButtonStyle}>
             구매하기

@@ -58,16 +58,20 @@ const Top100ListComponent = ({ products }) => (
               <div style={{height: '40px'}}>
                 <span style={rankingStyle}>{index + 1}</span>
               </div>
-              <div style={{border: '1px solid #e6e6e6', height: '360px',}}>
+              <div style={{border: '1px solid #e6e6e6', height: '360px', position: 'relative',}}>
                 <Link to={`/i/${product.id}`}>
                   <img style={productImageStyle} alt='img' src={product.img}/>
                   <div style={{paddingLeft: '10px'}}>
                     <div>
                       <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
-                      <span style={{float:'right', marginRight: '10px', lineHeight: '26px',}}>{product.start_time} 방송</span>
+                      <span style={{float:'right', marginRight: '10px', fontSize: '13px', color: '#8d8d8d', lineHeight: '26px',}}>{product.date.toString().slice(-2)}일 {product.start_time} 방송</span>
                     </div>
-                    <div>{product.name}</div>
-                    <div style={priceTextStyle}>{formatMoney(product.price)} 원</div>
+                    <div style={{fontSize: '15px', lineHeight: '19px', height: '38px', overflow: 'hidden',}}>{product.name}</div>
+                    <div style={{position: 'absolute', bottom: '8px'}}>
+                      { product.price > 0 ?
+                        <div style={priceTextStyle}>{formatMoney(product.price)} 원</div> : <div style={{fontSize: '15px', color: '#888888'}}> 상담/렌탈 </div>
+                      }
+                    </div>
                   </div>
                 </Link>
               </div>
