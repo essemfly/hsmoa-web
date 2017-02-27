@@ -22,6 +22,7 @@ const productInfoStyle = {
 const logoStyle = {
   height: '25px',
   verticalAlign: 'middle',
+  marginTop: '-3px'
 }
 
 const discountTextStyle = {
@@ -33,6 +34,7 @@ const discountTextStyle = {
 
 const priceTextStyle = {
   fontSize: '24px',
+  lineHeight: '24px',
   color: '#ea1b27',
   fontWeight: 'bold',
 }
@@ -47,6 +49,7 @@ const buyButtonStyle = {
   backgroundColor: '#f24040',
   color: 'white',
   lineHeight: '48px',
+  fontWeight: 'bold',
   fontSize: '22px',
 }
 
@@ -71,38 +74,39 @@ const containerStyle = {
 const GeneralProductComponent = ({ product }) => {
   if (Object.keys(product).length === 0) {
     return <div></div>
-  } 
+  }
 
   return (
     <div style={productInfoBoxStyle}>
-      <div style={containerStyle}>        
+      <div style={containerStyle}>
         <Slider {...slickSettings}>
           {
             product.img_list.map((img, index) =>
               <div key={index} className='hoit'>
                 <img style={{width: '300px',}}src={`${img}`} alt={`product${index}`} />
-              </div>  
+              </div>
             )
           }
         </Slider>
       </div>
       <div style={productInfoStyle}>
-        <div style={{marginBottom: '20px',}}>
-          <img style={logoStyle} alt='img' src={`http://cache.m.ui.hsmoa.com/media/logo3/logo_${product.genre2}.png`}/>
-          <span style={{fontSize: '14px', lineHeight: '17px', marginLeft: '20px', verticalAlign: 'middle',}}>{product.start_time} ~ {product.end_time} </span>
+        <div style={{marginBottom: '16px',}}>
+          <img style={logoStyle} alt='img' src={`http://cache.m.ui.hsmoa.com/media/logo/logo_${product.genre2}.png`}/>
+          <span style={{fontSize: '14px', lineHeight: '20px', color: '#ccc', margin: '0 5px', verticalAlign: 'middle',}}> | </span>
+          <span style={{fontSize: '14px', lineHeight: '20px', color: '#aaa', verticalAlign: 'middle',}}>{product.start_time} ~ {product.end_time} </span>
         </div>
-        <div style={{fontSize: '18px', lineHeight: '24px', marginBottom: '20px',}}>{product.name}</div>
+        <div style={{fontSize: '18px', lineHeight: '24px', marginBottom: '20px', color:'black'}}>{product.name}</div>
         {
           product.price > 0 ?
           <div>
             <div style={discountTextStyle}> {formatMoney(product.org_price)}원</div>
-            <div style={priceTextStyle}>{formatMoney(product.price)} 원</div>
-          </div> : 
+            <div style={priceTextStyle}>{formatMoney(product.price)}<span style={{fontSize: '16px'}}>원</span></div>
+          </div> :
           <div>
             <div style={{fontSize: '24px', color: '#888888', fontWeight: 'bold',}}> 상담/렌탈 </div>
           </div>
         }
-        <a target='_blank' href={product.url}>
+        <a target='_blank' href='{product.url}'>
           <div style={buyButtonStyle}>
             구매하기
           </div>

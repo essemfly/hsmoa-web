@@ -21,6 +21,7 @@ const todayStyle = {
   lineHeight: '26px',
   border: '1px solid #32be9f',
   borderRadius: '15px',
+  margin: '0 auto',
 }
 
 const selectedDayStyle = {
@@ -30,7 +31,7 @@ const selectedDayStyle = {
   lineHeight: '28px',
   color: 'white',
   borderRadius: '15px',
-  marginRight: 'auto', 
+  marginRight: 'auto',
   marginLeft: 'auto',
 }
 

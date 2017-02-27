@@ -3,7 +3,7 @@ import starOff from './images/star-off@2x.png'
 import starOn from './images/star-on@2x.png'
 import { formatMoney } from '../common'
 
-const sectionStyle = { 
+const sectionStyle = {
   marginTop: '10px',
   textAlign: 'left',
 }
@@ -31,8 +31,14 @@ const productImageStyle = {
 }
 
 const logoStyle = {
-  height: '25px',
+  height: '18px',
   verticalAlign: 'middle',
+}
+
+const timeStyle = {
+  color: '#8d8d8d',
+  fontSize: '12px',
+  float: 'right',
 }
 
 const priceTextStyle = {
@@ -43,42 +49,46 @@ const priceTextStyle = {
 
 const SearchListComponent = ({ products }) => {
   if (products.length < 1) {
-    return <div></div>
+    return <div style={{ fontSize: '15px', lineHeight: '20px', padding: '40px 0 80px'}}>검색 결과가 없습니다.<br/>다른 조건으로 다시 검색해주세요.</div>
   }
-  
+
   return (
     <div style={sectionStyle}>
       <div style={{display: 'table', width: '810px',}}>
         <ul style={productListStyle}>
-          { products.map((product, index) => 
+          { products.map((product, index) =>
             <li key={index} style={productBoxStyle}>
               <div style={{border: '1px solid #e6e6e6', height: '380px', position: 'relative',}}>
                 <a target='_blank' href={product.url}>
                   <img style={productImageStyle} alt='img' src={product.img}/>
-                  <div style={{paddingLeft: '10px'}}>
+                  <div style={{padding: '2px 10px'}}>
                     <div>
-                      <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
+                      <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo/logo_' + product.genre2 + '.png'}/>
+                      {
+                        product.date > 0 ?
+                        <span style={timeStyle}>{product.date.toString().slice(-2)}일 {product.start_time} 방송</span> : ''
+                      }
                     </div>
-                    <div style={{ fontSize: '15px', lineHeight: '19px', height: '38px', overflow: 'hidden', marginBottom: '5px',}}>{product.name}</div>
+                    <div style={{ fontSize: '15px', lineHeight: '20px', height: '40px', overflow: 'hidden', margin: '3px 0', color:'black'}}>{product.name}</div>
                     { product.review_rate > 0 ?
-                      <span>
+                      <span style={{paddingRight: '7px'}}>
                         {
-                          [...Array(5)].map((x, i) => 
+                          [...Array(5)].map((x, i) =>
                           i < Math.round(product.review_rate) ?
-                          <img key={i} style={{height: '15px',}} src={starOn} alt={`star${i}`} />:
-                          <img key={i} style={{height: '15px',}} src={starOff} alt={`star${i}`} />
+                          <img key={i} style={{height: '13px',verticalAlign: 'top',marginTop:'1px'}} src={starOn} alt={`star${i}`} />:
+                          <img key={i} style={{height: '13px',verticalAlign: 'top',marginTop:'1px'}} src={starOff} alt={`star${i}`} />
                         )}
                         <span></span>
                       </span> : ''
                     }
                     {
                       product.review_num > 0 ?
-                      <span style={{ paddingLeft: '5px', fontSize: '12px', color: '#8d8d8d', }}> 리뷰 {product.review_num}</span> : ''
+                      <span style={{  fontSize: '12px', color: '#8d8d8d', }}>리뷰 {formatMoney(product.review_num)}</span> : ''
                     }
-                    <div style={{position: 'absolute', bottom: '9px',}}>
+                    <div style={{position: 'absolute', bottom: '9px', lineHeight: '19px',}}>
                       {
-                        product.price > 0 ?
-                        <div style={priceTextStyle}>{formatMoney(product.price)} 원</div> : <div style={{fontSize: '18px', color: '#888888', fontWeight: 'bold',}}> 상담/렌탈 </div>
+                        product.price > 9 ?
+                        <div style={priceTextStyle}>{formatMoney(product.price)}<span style={{fontSize:'14px'}}>원</span></div> : <div style={{fontSize: '17px', color: '#888888', fontWeight: 'bold',}}> 상담/렌탈 </div>
                       }
                     </div>
                   </div>
@@ -97,4 +107,3 @@ SearchListComponent.propTypes = {
 }
 
 export default SearchListComponent;
-

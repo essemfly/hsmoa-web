@@ -3,6 +3,7 @@ import SearchFilterComponent from './SearchFilterComponent'
 import SearchListComponent from './SearchListComponent'
 import SearchHeaderFilterComponent from './SearchHeaderFilterComponent'
 import SearchListPageComponent from './SearchListPageComponent'
+import { formatMoney } from '../common'
 
 const baseStyle = {
   width: '100%',
@@ -30,17 +31,18 @@ const resultInfoStyle = {
   fontSize: '19px',
   lineHeight: '23px',
   textAlign: 'initial',
-  margin: '30px 20px 20px 20px',
+  margin: '20px',
 }
 
 const relatedTextStyle = {
   fontSize: '12px',
   color: '#666666',
   paddingRight: '26px',
+  display:'inline-block'
 }
 
 const relatedTextDivStyle = {
-  margin: '0 0 22px 20px',
+  margin: '0 0 30px 20px',
   height: '15px',
   overflow: 'hidden',
   textAlign: 'initial',
@@ -70,7 +72,7 @@ class SearchComponent extends Component {
         </div>
         <div style={productListStyle}>
           <div style={resultInfoStyle}>
-            {`"${this.props.filter.keyword}"에 대한 ${this.props.totalProductsCount}개의 상품이 있습니다.`}
+            {`"${this.props.filter.keyword}"에 대한 ${formatMoney(this.props.totalProductsCount)}개의 상품이 있습니다.`}
           </div>
           {
             this.props.relatedTexts.count > 0 ?
@@ -88,7 +90,9 @@ class SearchComponent extends Component {
             onClickPriceRange={this.props.onClickPriceRange}
           />
           <SearchListComponent products={this.props.products} />
-          <SearchListPageComponent filter={this.props.filter} totalProductsCount={this.props.totalProductsCount} onClickPage={this.props.onClickPage} />
+          { this.props.products.length >= 30 ?
+            <SearchListPageComponent filter={this.props.filter} totalProductsCount={this.props.totalProductsCount} onClickPage={this.props.onClickPage} />:<div></div>
+          }
         </div>
       </div>
     );

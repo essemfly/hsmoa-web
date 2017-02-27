@@ -30,15 +30,16 @@ const calendarStyle = {
   height: '150px',
   position: 'fixed',
   zIndex: '9999',
+  top:'123px',
   backgroundImage: `url(${date_popup_img})`,
 }
 
-const ScheduleComponent = 
+const ScheduleComponent =
 ({ filter, isOpenCalendar, schedules, onClickCategory, onClickChannel, onClickDay, changeDate }) => {
   return (
     <div style={baseStyle}>
       <div style={leftNavStyle}>
-        <ScheduleFilterComponent 
+        <ScheduleFilterComponent
           filter={filter}
           isOpenCalendar={isOpenCalendar}
           onClickCategory={onClickCategory}
@@ -47,7 +48,7 @@ const ScheduleComponent =
           changeDate={changeDate}
         />
       </div>
-      { isOpenCalendar ? 
+      { isOpenCalendar ?
         <div style={calendarStyle}>
           <ScheduleCalendarComponent selectedDate={filter.date} onClickDay={onClickDay} />
         </div> : ''

@@ -46,6 +46,7 @@ const navItemStyle = {
   margin: '0 15px',
   fontSize: '17px',
   padding: '7px',
+  color: 'black'
 }
 
 const searchBoxStyle = {
@@ -61,7 +62,7 @@ const HeaderComponent = ({ route, keyword, onChangeKeyword, onSearchClick }) => 
       <div style={headerStyle}>
         <div style={logoDivStyle}>
           <Link to="/">
-            <img src="http://thum.buzzni.com/unsafe/796x0/smart/https://s3-ap-northeast-1.amazonaws.com/media.buzzni.net/2017/02/02/1486012060_5c44528e1780990fa619531a4b20c0c8.png" style={logoStyle} alt=''/>
+            <img src="http://thum.buzzni.com/unsafe/300x0/smart/https://s3-ap-northeast-1.amazonaws.com/media.buzzni.net/2017/02/02/1486012060_5c44528e1780990fa619531a4b20c0c8.png" style={logoStyle} alt=''/>
           </Link>
         </div>
         <div style={navStyle}>

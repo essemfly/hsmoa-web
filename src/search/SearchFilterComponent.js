@@ -12,7 +12,7 @@ const filterNavStyle = {
 }
 
 const filterSectionStyle = {
-  paddingBottom: '18px',
+  paddingBottom: '10px',
   borderBottom: 'solid 1px #dddddd',
 }
 
@@ -30,7 +30,7 @@ const checkboxStyle = {
 }
 
 const categoryImageStyle = {
-  height: '40px',
+  height: '38px',
   cursor: 'pointer',
   verticalAlign: 'top',
 }
@@ -39,30 +39,6 @@ const categoryImageStyle = {
 const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, onClickChannel, onClickLiveStatus }) => {
   if (categories.length < 1) {
     return <div></div>
-  }
-
-  const channelMappers = {
-    'nsmall': 'NS홈쇼핑',
-    'gsshop': 'GSSHOP',
-    'hmall': '현대홈쇼핑',
-    'hmallplus': '현대홈쇼핑플러스샵',
-    'hnsmall': '홈&쇼핑',
-    'lottemall': '롯데홈쇼핑',
-    'lotteimall': '롯데홈쇼핑',
-    'cjmall': 'CJ오쇼핑',
-    'gsmyshop': 'GSMYSHOP',
-    'kshop': 'K쇼핑',
-    'ssgshop': '신세계TV쇼핑',
-    'wshop': 'W쇼핑',
-    'immall': '아임쇼핑',
-    '11st': '11번가',
-    'cjmallplus': 'CJ오쇼핑플러스',
-    'shopnt': '쇼핑엔T',
-    'lotte': '롯데닷컴',
-    'ssg': '신세계몰',
-    'himart': '하이마트',
-    'auction': '옥션',
-    'gmarket': 'G마켓'
   }
 
   return (
@@ -91,8 +67,8 @@ const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, 
         <div>
           { categories.map((category, index) => (
               <div style={checkboxStyle} key={index}>
-                <input type="radio" name="category" onChange={(evt) => onClickCategory(filter, category, evt.target.checked)}/>
-                <span style={{verticalAlign: 'middle',}}> {category.ncate3} </span>
+                <input id={`category${index}`} type="radio" name="category" onChange={(evt) => onClickCategory(filter, category, evt.target.checked)}/>
+                <label htmlFor={`category${index}`}>{category.ncate3}</label>
               </div>
             ))
           }
@@ -101,12 +77,18 @@ const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, 
       <div style={filterSectionStyle}>
         <h4 style={filterHeaderStyle}>쇼핑사</h4>
         <div>
-          { channels.map((channel, index) => (
-              <div style={checkboxStyle} key={index}>
-                <input id={`channel${index}`} type="checkbox" onChange={(evt) => onClickChannel(filter, channel, evt.target.checked)}/>
-                <label htmlFor={`channel${index}`}></label>
-                <span style={{verticalAlign: 'middle',}}> {channelMappers[channel.key]}</span>
-              </div>
+          { channels.map((subchannel, index) => (
+            <div style={{ marginTop:'10px', }}>
+              <span style={{ fontSize:'11px', lineHeight:'11px' }} >{subchannel.name}</span>
+                { subchannel['sub_genre2'].map((subchannel, index) => (
+                  <div style={checkboxStyle} key={index}>
+                     <input id={`channel${subchannel.genre2}`} type="checkbox" onChange={(evt) => onClickChannel(filter, subchannel, evt.target.checked)}/>
+                     <label htmlFor={`channel${subchannel.genre2}`}></label>
+                     <label htmlFor={`channel${subchannel.genre2}`}>{subchannel.name}</label>
+                   </div>
+                 ))
+               }
+             </div>
             ))
           }
         </div>
