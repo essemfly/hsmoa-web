@@ -25,17 +25,6 @@ const productBoxStyle = {
   border:'1px solid rgba(0, 0, 0, 0.1)',
 }
 
-const productBoxBorderStyle = {
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-  left: 0,
-  top: 0,
-  border: '1px solid #000',
-  opacity: '0.1'
-}
-
-
 const scheduleBoxStyle = {
   width: '100%',
   height: '160px',

@@ -78,7 +78,7 @@ const LiveProductComponent = ({ product }) => {
             <span style={{fontSize: '14px', lineHeight: '20px', color: '#ccc', margin: '0 5px', verticalAlign: 'middle',}}> | </span>
             <span style={{fontSize: '14px', lineHeight: '20px', color: '#aaa', verticalAlign: 'middle',}}>{product.start_time} ~ {product.end_time} </span>
           </div>
-          <div style={{fontSize: '18px', color:'black', lineHeight: '24px', marginBottom: '24px', color:'black'}}>{product.name}</div>
+          <div style={{fontSize: '18px', color:'black', lineHeight: '24px', marginBottom: '24px',}}>{product.name}</div>
           { product.price > 0 ?
             <div style={{width:'50%', display: 'inline-block'}}>
               <div style={discountTextStyle}> {formatMoney(product.org_price)}원</div>
