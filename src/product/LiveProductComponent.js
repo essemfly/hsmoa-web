@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { formatMoney, FlowPlayer } from '../common'
+import { formatMoney, FlowPlayer, redirectProduct } from '../common'
 
 const productInfoBoxStyle = {
   borderBottom: '1px solid rgba(0,0,0,0.1)',
@@ -68,6 +68,8 @@ const videoUrls = {
 }
 
 const LiveProductComponent = ({ product }) => {
+  const routeName = 'item'
+
   return (
     <div>
       <FlowPlayer src={videoUrls[product.genre2]} />
@@ -88,7 +90,7 @@ const LiveProductComponent = ({ product }) => {
               <div style={{fontSize: '24px', color: '#888888', fontWeight: 'bold',}}>상담/렌탈</div>
             </div>
           }
-          <a target='_blank' href={product.url}>
+          <a target='_blank' href={redirectProduct(routeName, product.id, product.url)}>
             <div style={buyButtonStyle}>구매하기</div>
           </a>
         </div>

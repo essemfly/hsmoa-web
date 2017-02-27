@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import starOff from './images/star-off@2x.png'
 import starOn from './images/star-on@2x.png'
-import { formatMoney } from '../common'
+import { formatMoney, redirectSearch } from '../common'
 
 const sectionStyle = {
   marginTop: '10px',
@@ -52,6 +52,8 @@ const SearchListComponent = ({ products }) => {
     return <div style={{ fontSize: '15px', lineHeight: '20px', padding: '40px 0 80px'}}>검색 결과가 없습니다.<br/>다른 조건으로 다시 검색해주세요.</div>
   }
 
+  const routeName = 'search'
+
   return (
     <div style={sectionStyle}>
       <div style={{display: 'table', width: '810px',}}>
@@ -59,7 +61,7 @@ const SearchListComponent = ({ products }) => {
           { products.map((product, index) =>
             <li key={index} style={productBoxStyle}>
               <div style={{border: '1px solid #e6e6e6', height: '380px', position: 'relative',}}>
-                <a target='_blank' href={product.url}>
+                <a target='_blank' href={redirectSearch(routeName, product.genre2, product.goods_id, product.url)}>
                   <img style={productImageStyle} alt='img' src={product.img}/>
                   <div style={{padding: '2px 10px'}}>
                     <div>

@@ -4,7 +4,7 @@ import Top100ListComponent from './Top100ListComponent'
 import buy_button from './images/buy_button.png'
 import detail_button from './images/detail_button.png'
 import { Link } from 'react-router'
-import { formatPhone, FlowPlayer } from '../common'
+import { formatPhone, FlowPlayer, redirectProduct } from '../common'
 
 const baseStyle = {
   width: '100%',
@@ -87,6 +87,8 @@ const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel })
     return <div style={baseStyle}/>
   }
 
+  const routeName = 'home'
+
   return (
   <div style={baseStyle}>
     <div style={videoSectionStyle}>
@@ -96,7 +98,7 @@ const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel })
            { channels[onAir].ars.length > 0 ?
               '자동 ' + formatPhone(channels[onAir].ars) + '	　	상담 ' + formatPhone(channels[onAir].call) : '' }
           </span>
-          <a target="_blank" href={channels[onAir].url}>
+          <a target="_blank" href={redirectProduct(routeName, channels[onAir].id, channels[onAir].url)}>
             <img style={markerImageStyle} src={buy_button} alt="구매하기"/>
           </a>
           <Link to={`/i/${channels[onAir].id}`}>

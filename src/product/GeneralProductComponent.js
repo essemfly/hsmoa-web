@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import Slider from 'react-slick'
-import { formatMoney } from '../common'
+import { formatMoney, redirectProduct } from '../common'
 
 const productInfoBoxStyle = {
   height: '320px',
@@ -75,6 +75,8 @@ const GeneralProductComponent = ({ product }) => {
   if (Object.keys(product).length === 0) {
     return <div></div>
   }
+  
+  const routeName = 'item'
 
   return (
     <div style={productInfoBoxStyle}>
@@ -106,7 +108,7 @@ const GeneralProductComponent = ({ product }) => {
             <div style={{fontSize: '24px', color: '#888888', fontWeight: 'bold',}}> 상담/렌탈 </div>
           </div>
         }
-        <a target='_blank' href='{product.url}'>
+        <a target='_blank' href={redirectProduct(routeName, product.id, product.url)}>
           <div style={buyButtonStyle}>
             구매하기
           </div>
