@@ -24,14 +24,14 @@ const ScheduleDateComponent = ({selectedDate, changeDate}) => {
   return (
     <div style={dateBoxStyle} onClick={changeDate}>
       <span style={dateTextStyle}>
-        {`${selectedDate.getFullYear()}년 ${selectedDate.getMonth()+1}월 ${selectedDate.getDate()}일`}  
+        {`${selectedDate.getFullYear()}년 ${selectedDate.getMonth()+1}월 ${selectedDate.getDate()}일`}
       </span>
       <div style={{float: 'right',}}>
-        <img style={{ height: '20px', margin: '9px'}} src={calendarImage} alt='cal' />
+        <img style={{ height: '18px', margin: '9px'}} src={calendarImage} alt='cal' />
       </div>
     </div>
   )
-} 
+}
 
 ScheduleDateComponent.propTypes = {
   selectedDate: PropTypes.object,

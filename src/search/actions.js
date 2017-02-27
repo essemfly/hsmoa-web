@@ -35,10 +35,10 @@ export const filterCategoryChanged = (filter, category, val) => {
 export const filterChannelChanged = (filter, channel, val) => {
     let newFilter = {}
     if (val) {
-        newFilter = { ...filter, selectedChannels: filter.selectedChannels.concat(channel.key) }
+        newFilter = { ...filter, selectedChannels: filter.selectedChannels.concat(channel.genre2) }
     } else {
         for (let i = 0; i < filter.selectedChannels.length; i++) {
-            if (filter.selectedChannels[i] === channel.key) {
+            if (filter.selectedChannels[i] === channel.genre2) {
                 newFilter = { ...filter }
                 newFilter.selectedChannels.splice(i, 1)
             }

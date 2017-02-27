@@ -8,14 +8,14 @@ const filterNavStyle = {
 }
 
 const filterSectionStyle = {
-  paddingBottom: '18px',
+  paddingBottom: '10px',
   borderBottom: 'solid 1px #dddddd',
 }
 
 const filterHeaderStyle = {
   fontSize: '15px',
   lineHeight: '19px',
-  marginTop: '18px',
+  marginTop: '16px',
   marginBottom: '12px',
 }
 
@@ -43,14 +43,9 @@ const ScheduleFilterComponent = ({ isOpenCalendar, filter, onClickCategory, onCl
     'immall': '아임쇼핑',
     '11st': '11번가',
     'cjmallplus': 'CJ오쇼핑플러스',
-    'shopnt': '쇼핑엔T',
-    'lotte': '롯데닷컴',
-    'ssg': '신세계몰',
-    'himart': '하이마트',
-    'auction': '옥션',
-    'gmarket': 'G마켓'
+    'shopnt': '쇼핑엔T'
   }
-  
+
   return (
     <div style={filterNavStyle}>
       <div style={filterSectionStyle}>
@@ -64,7 +59,7 @@ const ScheduleFilterComponent = ({ isOpenCalendar, filter, onClickCategory, onCl
               <div style={checkboxStyle} key={index}>
                 <input id={`category${index}`} type="checkbox" onChange={(evt) => onClickCategory(category, evt.target.checked)}/>
                 <label htmlFor={`category${index}`}></label>
-                <span style={{verticalAlign: 'middle'}}> {category} </span>
+                <label htmlFor={`category${index}`} style={{verticalAlign: 'middle'}}>{category}</label>
               </div>
             ))
           }
@@ -77,7 +72,7 @@ const ScheduleFilterComponent = ({ isOpenCalendar, filter, onClickCategory, onCl
               <div style={checkboxStyle} key={index}>
                 <input id={`channel${index}`} type="checkbox" onChange={(evt) => onClickChannel(channel, evt.target.checked)}/>
                 <label htmlFor={`channel${index}`}></label>
-                <span style={{verticalAlign: 'middle'}}> {channels[channel]}</span>
+                <label htmlFor={`channel${index}`} style={{verticalAlign: 'middle'}}>{channels[channel]}</label>
               </div>
             ))
           }

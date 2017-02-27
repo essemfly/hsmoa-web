@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import { formatMoney } from '../common'
 
-const sectionStyle = { 
+const sectionStyle = {
   marginTop: '10px',
   textAlign: 'left',
 }
@@ -16,11 +16,11 @@ const productListStyle = {
 
 const productBoxStyle = {
   width: '250px',
-  height: '400px',
+  height: '410px',
   position: 'relative',
   float: 'left',
   marginLeft: '20px',
-  marginBottom: '15px',
+  marginBottom: '20px',
   cursor: 'pointer',
 }
 
@@ -30,8 +30,23 @@ const productImageStyle = {
 }
 
 const logoStyle = {
-  height: '25px',
+  height: '20px',
   verticalAlign: 'middle',
+}
+
+const timeStyle = {
+  color: '#8d8d8d',
+  fontSize: '12px',
+  float: 'right',
+}
+
+const titleStyle = {
+  fontSize: '15px',
+  lineHeight: '22px',
+  height: '44px',
+  color:'black',
+  marginTop:'2px',
+  overflow: 'hidden',
 }
 
 const priceTextStyle = {
@@ -53,23 +68,23 @@ const Top100ListComponent = ({ products }) => (
     <div style={sectionStyle}>
       <div style={{display: 'table', width: '810px',}}>
         <ul style={productListStyle}>
-          { products.map((product, index) => 
+          { products.map((product, index) =>
             <li key={index} style={productBoxStyle}>
               <div style={{height: '40px'}}>
                 <span style={rankingStyle}>{index + 1}</span>
               </div>
-              <div style={{border: '1px solid #e6e6e6', height: '360px', position: 'relative',}}>
+              <div style={{border: '1px solid #e6e6e6', height: '370px', position: 'relative',}}>
                 <Link to={`/i/${product.id}`}>
                   <img style={productImageStyle} alt='img' src={product.img}/>
-                  <div style={{paddingLeft: '10px'}}>
+                  <div style={{padding: '5px 10px'}}>
                     <div>
-                      <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
-                      <span style={{float:'right', marginRight: '10px', fontSize: '13px', color: '#8d8d8d', lineHeight: '26px',}}>{product.date.toString().slice(-2)}일 {product.start_time} 방송</span>
+                      <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo/logo_' + product.genre2 + '.png'}/>
+                      <span style={timeStyle}>{product.date.toString().slice(-2)}일 {product.start_time} 방송</span>
                     </div>
-                    <div style={{fontSize: '15px', lineHeight: '19px', height: '38px', overflow: 'hidden',}}>{product.name}</div>
+                    <div style={titleStyle}>{product.name}</div>
                     <div style={{position: 'absolute', bottom: '8px'}}>
                       { product.price > 0 ?
-                        <div style={priceTextStyle}>{formatMoney(product.price)} 원</div> : <div style={{fontSize: '15px', color: '#888888'}}> 상담/렌탈 </div>
+                        <div style={priceTextStyle}>{formatMoney(product.price)}<span style={{fontSize: '14px'}}>원</span></div> : <div style={{fontSize: '15px', color: '#888888'}}> 상담/렌탈 </div>
                       }
                     </div>
                   </div>

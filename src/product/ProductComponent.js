@@ -28,12 +28,12 @@ class ProductComponent extends Component {
         {
           this.props.product.live_status === 1 ?
           <LiveProductComponent product={this.props.product} /> : <GeneralProductComponent product={this.props.product} />
-        }    
-        <div style={{ textAlign: 'initial', fontSize: '14px'}} dangerouslySetInnerHTML={this.createDetailMarkup(this.props.product ? this.props.product.detail_html : '')} />
+        }
+        <div style={{ textAlign: 'initial', paddingTop: '20px'}} dangerouslySetInnerHTML={this.createDetailMarkup(this.props.product ? this.props.product.detail_html : '')} />
       </div>
     )
   }
-} 
+}
 
 ProductComponent.propTypes = {
   product: PropTypes.object,

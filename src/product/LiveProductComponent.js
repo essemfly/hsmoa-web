@@ -20,6 +20,7 @@ const productInfoStyle = {
 const logoStyle = {
   height: '25px',
   verticalAlign: 'middle',
+  marginTop: '-3px'
 }
 
 const discountTextStyle = {
@@ -31,6 +32,7 @@ const discountTextStyle = {
 
 const priceTextStyle = {
   fontSize: '24px',
+  lineHeight: '24px',
   color: '#ea1b27',
   fontWeight: 'bold',
 }
@@ -45,6 +47,7 @@ const buyButtonStyle = {
   color: 'white',
   lineHeight: '48px',
   fontSize: '22px',
+  verticalAlign: 'top'
 }
 
 const videoUrls = {
@@ -70,18 +73,19 @@ const LiveProductComponent = ({ product }) => {
       <FlowPlayer src={videoUrls[product.genre2]} />
       <div style={productInfoBoxStyle}>
         <div style={productInfoStyle}>
-          <div style={{marginBottom: '20px',}}>
-            <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo3/logo_' + product.genre2 + '.png'}/>
-            <span style={{fontSize: '14px', lineHeight: '17px', marginLeft: '20px', verticalAlign: 'middle',}}>{product.start_time} ~ {product.end_time} </span>
+          <div style={{marginBottom: '16px',}}>
+            <img style={logoStyle} alt='img' src={`http://cache.m.ui.hsmoa.com/media/logo/logo_${product.genre2}.png`}/>
+            <span style={{fontSize: '14px', lineHeight: '20px', color: '#ccc', margin: '0 5px', verticalAlign: 'middle',}}> | </span>
+            <span style={{fontSize: '14px', lineHeight: '20px', color: '#aaa', verticalAlign: 'middle',}}>{product.start_time} ~ {product.end_time} </span>
           </div>
-          <div style={{fontSize: '18px', lineHeight: '24px', marginBottom: '20px',}}>{product.name}</div>
+          <div style={{fontSize: '18px', color:'black', lineHeight: '24px', marginBottom: '24px', color:'black'}}>{product.name}</div>
           { product.price > 0 ?
             <div style={{width:'50%', display: 'inline-block'}}>
               <div style={discountTextStyle}> {formatMoney(product.org_price)}원</div>
-              <div style={priceTextStyle}>{formatMoney(product.price)} 원</div>
-            </div> : 
+              <div style={priceTextStyle}>{formatMoney(product.price)}<span style={{fontSize: '16px'}}>원</span></div>
+            </div> :
             <div style={{width:'50%', display: 'inline-block'}}>
-              <div style={{fontSize: '24px', color: '#888888', fontWeight: 'bold',}}> 상담/렌탈 </div>
+              <div style={{fontSize: '24px', color: '#888888', fontWeight: 'bold',}}>상담/렌탈</div>
             </div>
           }
           <a target='_blank' href={product.url}>

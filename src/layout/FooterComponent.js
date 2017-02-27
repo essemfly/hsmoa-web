@@ -9,6 +9,8 @@ const footerStyle = {
   display: 'table',
   background: 'black',
   height: '237px',
+  position: 'relative',
+  zIndex: '9'
 }
 
 const backgroundContainerStyle = {
@@ -37,6 +39,7 @@ const headStyle = {
 const textStyle = {
   fontSize: '12px',
   textAlign: 'left',
+  opacity: '0.8'
 }
 
 const linkTextStyle = {
@@ -51,12 +54,13 @@ const FooterComponent = () => (
     <div style={backgroundContainerStyle}>
       <div style={containerStyle}>
         <div style={headStyle}>
-          <img style={{height: '26px',}} src='http://thum.buzzni.com/unsafe/796x0/smart/https://s3-ap-northeast-1.amazonaws.com/media.buzzni.net/2017/02/02/1486012024_efe1c7ce9614b65ca1631bba2a1dc925.png' alt="bgImg"/>
+          <img style={{height: '26px',}} src='http://thum.buzzni.com/unsafe/250x0/smart/https://s3-ap-northeast-1.amazonaws.com/media.buzzni.net/2017/02/02/1486012024_efe1c7ce9614b65ca1631bba2a1dc925.png' alt="bgImg"/>
           <div style={linkTextStyle}>
-            <span>개인정보 이용약관</span><span> | </span>
-            <span>제휴/광고안내</span><span> | </span>
-            <span>(주) 버즈니 홈페이지</span><span> | </span>
-            <span>홈쇼핑모아 페이스북</span>
+            <a href='mailto:hsmoa@buzzni.com'><span>제휴/광고안내</span></a>
+            <span style={{margin: '0 15px',}}> | </span>
+            <a href='https://buzzni.com/service?from=hsmoa.com' target='_blank'><span>(주)버즈니 홈페이지</span></a>
+            <span style={{margin: '0 15px',}}> | </span>
+            <a href='https://www.facebook.com/homeshoppingmoa' target='_blank'><span>홈쇼핑모아 페이스북</span></a>
           </div>
         </div>
         <div>

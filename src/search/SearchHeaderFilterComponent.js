@@ -5,7 +5,7 @@ const searchListHandleStyle = {
   height: '50px',
   width: '790px',
   fontSize: '14px',
-  marginBottom: '20px',
+  marginBottom: '30px',
   marginLeft: '20px',
   display: 'table',
 }
@@ -44,7 +44,7 @@ class SearchHeaderFilterComponent extends Component {
       ...this.props.filter,
       priceRange: {
         start: this.state.min,
-        end: this.state.max, 
+        end: this.state.max,
       }
     }
     this.props.onClickPriceRange(newFilter)

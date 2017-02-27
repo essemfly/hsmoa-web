@@ -35,8 +35,10 @@
   border-bottom: 3px solid #EA1B27;
   font-weight: bold;
 }
-a {
-  color: black;
+
+a, a:hover{
+  text-decoration: none;
+  color:inherit;
 }
 
 .slick-slide {
@@ -69,6 +71,24 @@ input[type='checkbox'] + label {
   margin-right: 9px;
 }
 
+
+input[type='radio'] + label {
+  font-size: 13px;
+  color: #8d8d8d;
+  cursor: pointer;
+  top: 1px;
+}
+
+input[type='radio']:checked + label {
+	color: black;
+}
+
+input[type='checkbox'] + label + label {
+  font-size: 13px;
+  color: #8d8d8d;
+  cursor: pointer;
+}
+
 input[type='checkbox']:checked + label {
 	border: solid 1px #32be9f;
 }
@@ -80,6 +100,10 @@ input[type='checkbox']:checked + label:after {
   bottom: 5px;
   position: relative;
   color: #32be9f;
+}
+
+input[type='checkbox']:checked + label + label {
+	color: black;
 }
 
 input[type='radio'] {
