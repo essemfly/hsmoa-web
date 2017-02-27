@@ -173,8 +173,8 @@ class AfterLiveListComponent extends Component {
                 {
                   product.same_time_item ?
                     product.same_time_item.map((item, itemIndex) =>
-                      <Link to={`/i/${item.id}`}>
-                        <div key={itemIndex} style={subProductBoxStyle}>
+                      <Link to={`/i/${item.id}`} key={itemIndex}>
+                        <div style={subProductBoxStyle}>
                             <div style={subScheduleImageStyle}>
                               <img style={subScheduleImageStyle} src={item.img} alt="itemImg"/>
                             </div>

@@ -78,7 +78,7 @@ const SearchFilterComponent = ({ categories, channels, filter, onClickCategory, 
         <h4 style={filterHeaderStyle}>쇼핑사</h4>
         <div>
           { channels.map((subchannel, index) => (
-            <div style={{ marginTop:'10px', }}>
+            <div style={{ marginTop:'10px', }} key={index}>
               <span style={{ fontSize:'11px', lineHeight:'11px' }} >{subchannel.name}</span>
                 { subchannel['sub_genre2'].map((subchannel, index) => (
                   <div style={checkboxStyle} key={index}>

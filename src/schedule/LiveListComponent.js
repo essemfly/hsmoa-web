@@ -114,8 +114,8 @@ const LiveListComponent = ({ schedules }) => {
       }
       {
         schedules.map((schedule, index) =>
-        <Link to={`/i/${schedule.id}`}>
-          <div style={scheduleBoxStyle} key={index}>
+        <Link to={`/i/${schedule.id}`} key={index}>
+          <div style={scheduleBoxStyle}>
               <div style={scheduleImageStyle}>
                 <img style={scheduleImageStyle} src={schedule.img} alt="productImg"/>
                 <img style={scheduleLiveOverlayStyle} src={liveOverlayImage} alt="productImg"/>
