@@ -83,11 +83,12 @@ const GeneralProductComponent = ({ product }) => {
       <div style={containerStyle}>
         <Slider {...slickSettings}>
           {
-            product.img_list.map((img, index) =>
-              <div key={index} className='hoit'>
-                <img style={{width: '300px',}}src={`${img}`} alt={`product${index}`} />
-              </div>
-            )
+            product.img_list.length > 0 ? 
+              product.img_list.map((img, index) =>
+                <div key={index} className='hoit'>
+                  <img style={{width: '300px',}}src={`${img}`} alt={`product${index}`} />
+                </div>
+              ) : <div></div>
           }
         </Slider>
       </div>
