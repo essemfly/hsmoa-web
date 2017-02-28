@@ -25,6 +25,7 @@ const sagaMiddleware = createSagaMiddleware()
 
 export const rootStore = createStore(
   rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(sagaMiddleware)
 )
 
