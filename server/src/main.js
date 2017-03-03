@@ -6,7 +6,7 @@ import api from './routes';
 const path = require('path'); 
 const app = express();
  
-let port = 8081;
+let port = 8080;
  
  
 // SETUP MIDDLEWARE
