@@ -166,7 +166,7 @@ class BeforeLiveListComponent extends Component {
                       <img style={scheduleImageStyle} src={product.img} alt="productImg"/>
                     </div>
                     <div style={scheduleDescStyle}>
-                      <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo/logo_' + product.genre2 + '.png'}/>
+                      <img style={logoStyle} alt='img' src={'http://m.ui.hsmoa.com/media/logo/logo_' + product.genre2 + '.png'}/>
                       <span style={timeStyle}> | {product.start_time} ~ {product.end_time} </span>
                       <div style={titleStyle}> {product.name} </div>
                       { product.price > 0 ?

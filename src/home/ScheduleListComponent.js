@@ -96,7 +96,7 @@ const ScheduleListComponent = ({title, expand, products}) => (
                 <img style={productImageStyle} alt='img' src={product.img}/>
                 <div style={{padding: '3px 10px'}}>
                   <div>
-                    <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo/logo_' + product.genre2 + '.png'}/>
+                    <img style={logoStyle} alt='img' src={'http://m.ui.hsmoa.com/media/logo/logo_' + product.genre2 + '.png'}/>
                     <span style={timeStyle}>{product.start_time} ~ {product.end_time}</span>
                   </div>
                   <div style={titleStyle}>{product.name}</div>

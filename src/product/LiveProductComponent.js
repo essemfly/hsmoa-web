@@ -76,7 +76,7 @@ const LiveProductComponent = ({ product }) => {
       <div style={productInfoBoxStyle}>
         <div style={productInfoStyle}>
           <div style={{marginBottom: '16px',}}>
-            <img style={logoStyle} alt='img' src={`http://cache.m.ui.hsmoa.com/media/logo/logo_${product.genre2}.png`}/>
+            <img style={logoStyle} alt='img' src={`http://m.ui.hsmoa.com/media/logo/logo_${product.genre2}.png`}/>
             <span style={{fontSize: '14px', lineHeight: '20px', color: '#ccc', margin: '0 5px', verticalAlign: 'middle',}}> | </span>
             <span style={{fontSize: '14px', lineHeight: '20px', color: '#aaa', verticalAlign: 'middle',}}>{product.start_time} ~ {product.end_time} </span>
           </div>

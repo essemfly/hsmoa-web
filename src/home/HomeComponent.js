@@ -111,7 +111,7 @@ const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel })
         <ul style={channelsListStyle}>
           { channels.map((channel, index) =>
             <li style={onAir === index ? activeListStyle : listStyle} key={index} onClick={() => onChangeChannel(index)}>
-              <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo/logo_big_' + channel.crawl_site + '.png'}/>
+              <img style={logoStyle} alt='img' src={'http://m.ui.hsmoa.com/media/logo/logo_big_' + channel.crawl_site + '.png'}/>
             </li>)
           }
         </ul>

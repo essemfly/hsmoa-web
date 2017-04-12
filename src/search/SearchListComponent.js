@@ -65,7 +65,7 @@ const SearchListComponent = ({ products }) => {
                   <img style={productImageStyle} alt='img' src={product.img}/>
                   <div style={{padding: '2px 10px'}}>
                     <div>
-                      <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo/logo_' + product.genre2 + '.png'}/>
+                      <img style={logoStyle} alt='img' src={'http://m.ui.hsmoa.com/media/logo/logo_' + product.genre2 + '.png'}/>
                       {
                         product.date > 0 ?
                         <span style={timeStyle}>{product.date.toString().slice(-2)}일 {product.start_time} 방송</span> : ''

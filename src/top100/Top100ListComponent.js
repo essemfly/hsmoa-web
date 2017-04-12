@@ -78,7 +78,7 @@ const Top100ListComponent = ({ products }) => (
                   <img style={productImageStyle} alt='img' src={product.img}/>
                   <div style={{padding: '5px 10px'}}>
                     <div>
-                      <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo/logo_' + product.genre2 + '.png'}/>
+                      <img style={logoStyle} alt='img' src={'http://m.ui.hsmoa.com/media/logo/logo_' + product.genre2 + '.png'}/>
                       <span style={timeStyle}>{product.date.toString().slice(-2)}일 {product.start_time} 방송</span>
                     </div>
                     <div style={titleStyle}>{product.name}</div>

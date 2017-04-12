@@ -121,7 +121,7 @@ const LiveListComponent = ({ schedules }) => {
                 <img style={scheduleLiveOverlayStyle} src={liveOverlayImage} alt="productImg"/>
               </div>
               <div style={scheduleDescStyle}>
-                <img style={logoStyle} alt='img' src={'http://cache.m.ui.hsmoa.com/media/logo/logo_' + schedule.genre2 + '.png'}/>
+                <img style={logoStyle} alt='img' src={'http://m.ui.hsmoa.com/media/logo/logo_' + schedule.genre2 + '.png'}/>
                 <span style={{margin:'0 9px',color:'#ccc',lineHeight: '15px'}}>|</span>
                 <span style={timeStyle}>현재방송중</span>
                 <div style={titleStyle}> {schedule.name} </div>
