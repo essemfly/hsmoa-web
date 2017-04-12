@@ -1,15 +1,15 @@
 FROM node:boron
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /app
+WORKDIR /app
 
-# Install app dependencies
-COPY package.json /usr/src/app/
-RUN npm install
+COPY . /app
 
-# Bundle app source
-COPY . /usr/src/app
+RUN yarn install 
+RUN yarn run build
+RUN cd server && yarn install && yarn build
 
-EXPOSE 8081
 EXPOSE 8080
-CMD [ "npm", "start" ]
+
+CMD [ "yarn", "deploy" ]
+
