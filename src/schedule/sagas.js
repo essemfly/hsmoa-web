@@ -7,7 +7,7 @@ const getSchedules = (date) => {
     if (date) {
         date = date.toISOString().split('T')[0].split('-').join('')
     }
-    return axios.get(`http://rpc.hsmoa.com/tvshop/live/getTimeGroupList?is_web=1&version=7&sep=1&date=${date}`)
+    return axios.get(`//rpc.hsmoa.com/tvshop/live/getTimeGroupList?is_web=1&version=7&sep=1&date=${date}`)
         .then(response => {
             return response.data.result.data;
         })

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { formatMoney, FlowPlayer, redirectProduct } from '../common'
+import { formatMoney, FlowPlayer, redirectProduct, onAirUrls } from '../common'
 
 const productInfoBoxStyle = {
   borderBottom: '1px solid rgba(0,0,0,0.1)',
@@ -50,33 +50,16 @@ const buyButtonStyle = {
   verticalAlign: 'top'
 }
 
-const videoUrls = {
-  cjmall: "http://cjmall.live.cdn.visioncloud.co.kr/cjmalllive/stream2/playlist.m3u8",
-  gsshop: "http://livem.gsshop.com/gsshop_hd/_definst_/gsshop_hd.stream/playlist.m3u8",
-  hnsmall: "http://s33.qtcdn.co.kr/media/liveM3U8/idx/88679292/enc/365888297/playlist.m3u8",
-  hmall: "http://123.111.139.103:1935/live/ngrp:hmall.stream_mobile/playlist.m3u8",
-  lottemall: "http://mohlslive.lotteimall.com/live/livestream/lotteimalllive_mp4.m3u8",
-  nsmall: "http://livestream.nsmall.com/IPHONE/nsmallMobile.m3u8",
-  immall: "http://shoppingflv.x-cdn.com/mshoplive/_definst_/live1.stream/playlist.m3u8",
-  cjmallplus: "http://cjoshoppingplus.live.cdn.visioncloud.co.kr/cjosplus/live5/playlist.m3u8",
-  gsmyshop: "http://livem.gsshop.com/gsmyshop_sd/_definst_/gsmyshop_sd.stream/playlist.m3u8",
-  hmallplus: "http://edge1.everyon.tv/etv1sb/phd1215/playlist.m3u8",
-  kshop: "http://cdnwow.kshop.co.kr:8080/livetv/Stream1/playlist.m3u8",
-  ssgshop: "http://cdnwow.kshop.co.kr:8080/livetv/Stream1/playlist.m3u8",
-  wshop: "http://wshopping.live.cdn.cloudn.co.kr/wlive/_definst_/wshopping.stream/playlist.m3u8",
-  shopnt: "http://114.108.31.24/live/10012.m3u8",
-}
-
 const LiveProductComponent = ({ product }) => {
   const routeName = 'item'
 
   return (
     <div>
-      <FlowPlayer src={videoUrls[product.genre2]} />
+      <FlowPlayer src={onAirUrls[product.genre2]} />
       <div style={productInfoBoxStyle}>
         <div style={productInfoStyle}>
           <div style={{marginBottom: '16px',}}>
-            <img style={logoStyle} alt='img' src={`http://m.ui.hsmoa.com/media/logo/logo_${product.genre2}.png`}/>
+            <img style={logoStyle} alt='img' src={`//m.ui.hsmoa.com/media/logo/logo_${product.genre2}.png`}/>
             <span style={{fontSize: '14px', lineHeight: '20px', color: '#ccc', margin: '0 5px', verticalAlign: 'middle',}}> | </span>
             <span style={{fontSize: '14px', lineHeight: '20px', color: '#aaa', verticalAlign: 'middle',}}>{product.start_time} ~ {product.end_time} </span>
           </div>

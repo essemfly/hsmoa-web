@@ -8,7 +8,7 @@ const getTop100Products = (category = '전체') => {
     if (category !== '전체') {
         catQuery = `&cate=${category}`
     }
-    return axios.get(`http://rpc.hsmoa.com/popular_entity/getList?page=1&num=100${catQuery}`)
+    return axios.get(`//rpc.hsmoa.com/popular_entity/getList?page=1&num=100${catQuery}`)
         .then(response => {
             return response.data.result.data;
         })

@@ -11,7 +11,7 @@ import {
 } from './actions'
 
 const getSearchResult = (keyword) => {
-    return axios.get(`http://rpc.hsmoa.com/search/tvshopSearch`, {
+    return axios.get(`//rpc.hsmoa.com/search/tvshopSearch`, {
         params: {
             page: 1,
             num: 30,
@@ -25,7 +25,7 @@ const getSearchResult = (keyword) => {
 }
 
 const getRelevantText = (keyword) => {
-    return axios.get(`http://rpc.hsmoa.com/search/relatequery`, {
+    return axios.get(`//rpc.hsmoa.com/search/relatequery`, {
         params: {
             query: keyword
         }})
@@ -56,7 +56,7 @@ export function* watchSearch() {
 }
 
 const refreshSearchResult = (filter) => {
-    return axios.get(`http://rpc.hsmoa.com/search/tvshopSearch`, {
+    return axios.get(`//rpc.hsmoa.com/search/tvshopSearch`, {
         params: {
             page: filter.page,
             num: 30,

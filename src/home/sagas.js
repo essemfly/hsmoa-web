@@ -4,7 +4,7 @@ import { takeEvery } from 'redux-saga/effects'
 import { FETCH_REQUESTED, FETCH_SUCCEEDED, FETCH_FAILED } from './actions'
 
 const getStreamings = () => {
-    return axios.get('http://rpc.hsmoa.com/tvshop/live/getLiveList?version=7')
+    return axios.get('//rpc.hsmoa.com/tvshop/live/getLiveList?version=7')
       .then(response => {
         return response.data.result.data;
       })

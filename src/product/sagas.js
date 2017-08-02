@@ -4,7 +4,7 @@ import { takeEvery } from 'redux-saga/effects'
 import { GET_PRODUCT_REQUESTED, GET_PRODUCT_SUCCEEDED, GET_PRODUCT_FAILED } from './actions'
 
 const getProduct = (productId) => {
-    return axios.get(`http://rpc.hsmoa.com/entity/getInfo?entity_id=${productId}`)
+    return axios.get(`//rpc.hsmoa.com/entity/getInfo?entity_id=${productId}`)
         .then(response => {
             return response.data.result;
         })

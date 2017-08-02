@@ -4,7 +4,7 @@ import Top100ListComponent from './Top100ListComponent'
 import buy_button from './images/buy_button.png'
 import detail_button from './images/detail_button.png'
 import { Link } from 'react-router'
-import { formatPhone, FlowPlayer, redirectProduct } from '../common'
+import { formatPhone, FlowPlayer, redirectProduct, onAirUrls } from '../common'
 
 const baseStyle = {
   width: '100%',
@@ -105,7 +105,7 @@ const HomeComponent = ({ channels, onAir, schedules, top100s, onChangeChannel })
             <img style={markerImageStyle} src={detail_button} alt="상세보기"/>
           </Link>
         </div>
-        <FlowPlayer src={channels[onAir].ios_video} />
+        <FlowPlayer src={onAirUrls[channels[onAir].genre2]} />
       </div>
       <div style={channelsStyle}>
         <ul style={channelsListStyle}>
